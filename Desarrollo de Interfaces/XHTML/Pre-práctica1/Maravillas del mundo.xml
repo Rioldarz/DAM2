@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<muralla_china>
+    <nombre>
+        <primero>La Gran Muralla China</primero>
+        <segundo>El Coliseo Romano</segundo>
+        <tercero>Chinchén Itzá</tercero>
+        <cuarto>Machu Picchu</cuarto>
+        <quinto>Palacio de Taj Mahal</quinto>
+        <sexto>Cristo Redentor</sexto>
+        <septimo>Petra</septimo>
+    </nombre>
+    <pais>
+        <primero>China</primero>
+        <segundo>Italia</segundo>
+        <tercero>México</tercero>
+        <cuarto>Perú</cuarto>
+        <quinto>India</quinto>
+        <sexto>Brasil</sexto>
+        <septimo>Jordania</septimo>
+    </pais>
+</muralla_china>
