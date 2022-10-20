@@ -13,6 +13,8 @@ public class Sumador {
 		int numero1 = Integer.valueOf(args[0]);
 		int numero2 = Integer.valueOf(args[1]);
 
-		int suma = sumar(numero1, numero2);
+//		int suma = sumar(numero1, numero2); //Hasta aquí es del EjemploVideo1
+		System.out.print("Sumo desde " + numero1 + " hasta " + numero2 + ": ");
+		System.out.println(sumar(numero1, numero2	));
 	}// Fin Programa
 }
