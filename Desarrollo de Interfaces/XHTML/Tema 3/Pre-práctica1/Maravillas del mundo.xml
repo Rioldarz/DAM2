@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<muralla_china>
+<maravillas_mundo>
     <nombre>
         <primero>La Gran Muralla China</primero>
         <segundo>El Coliseo Romano</segundo>
@@ -18,4 +18,4 @@
         <sexto>Brasil</sexto>
         <septimo>Jordania</septimo>
     </pais>
-</muralla_china>
+</maravillas_mundo>
