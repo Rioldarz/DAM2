@@ -8,7 +8,7 @@ public class EjemploVideo1 {
 		Scanner teclado = new Scanner(System.in);
 		int numero1, numero2;
 
-		System.out.print("Dame un nimero: ");
+		System.out.print("Dame un numero: ");
 		numero1 = teclado.nextInt();
 		System.out.print("Dame otro numero: ");
 		numero2 = teclado.nextInt();
