@@ -14,6 +14,6 @@ public class Sumador {
 
 		int suma = sumar(numero1, numero2); //Hasta aquí es del EjemploVideo1
 //		System.out.print("Sumo desde " + numero1 + " hasta " + numero2 + ": ");
-//		System.out.println(sumar(numero1, numero2	));
+//		System.out.println(sumar(numero1, numero2	)); //Hasta aquí es del EjemploVideo2
 	}// Fin Programa
 }
