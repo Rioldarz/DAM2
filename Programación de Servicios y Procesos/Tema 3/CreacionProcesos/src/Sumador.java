@@ -8,7 +8,6 @@ public class Sumador {
 		return suma;
 	}// Fin Función
 
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		int numero1 = Integer.valueOf(args[0]);
 		int numero2 = Integer.valueOf(args[1]);
