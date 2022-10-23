@@ -1,4 +1,4 @@
-package com.controlador;
+package com.implementaCliente;
 
 import java.sql.Statement;
 import java.sql.Connection;
@@ -7,10 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.modelo.Conexion;
+import com.connection.Conexion;
+import com.interfazCliente.ICliente;
+import com.model.Cliente;
 
 public class ImplementaICliente implements ICliente {
 
+	/**
+	 * @param cliente
+	 * @return boolean
+	 */
 	@Override
 	public boolean alta(Cliente cliente) {
 		boolean alta = false;
@@ -18,7 +24,7 @@ public class ImplementaICliente implements ICliente {
 		Statement stm = null;
 		Connection con = null;
 
-		String sql = "INSERT INTO practica2 values('" + cliente.getNombre() + "'," + cliente.getEdad() + ",'"
+		String sql = "INSERT INTO `Practica2` values('" + cliente.getNombre() + "'," + cliente.getEdad() + ",'"
 				+ cliente.getCiudad() + "','" + cliente.getPadre() + "','" + cliente.getMadre() + "');";
 
 		try {
@@ -36,6 +42,10 @@ public class ImplementaICliente implements ICliente {
 		return alta;
 	}// Fin Función
 
+	/**
+	 * @param cliente
+	 * @return boolean
+	 */
 	@Override
 	public boolean modificar(Cliente cliente) {
 		Connection connect = null;
@@ -43,8 +53,9 @@ public class ImplementaICliente implements ICliente {
 
 		boolean modificar = false;
 
-		String sql = "UPDATE PRACTICA2 SET edad=" + cliente.getEdad() + ",ciudad='" + cliente.getCiudad() + "',padre='"
-				+ cliente.getMadre() + "'" + " WHERE nombre='" + cliente.getNombre() + "';";
+		String sql = "UPDATE `Practica2` SET edad=" + cliente.getEdad() + ",ciudad='" + cliente.getCiudad()
+				+ "',padre='" + cliente.getPadre() + "',madre='" + cliente.getMadre() + "'" + " WHERE nombre='"
+				+ cliente.getNombre() + "';";
 
 		try {
 			connect = new Conexion().getConnection();
@@ -59,6 +70,10 @@ public class ImplementaICliente implements ICliente {
 		return modificar;
 	}// Fin Función
 
+	/**
+	 * @param cliente
+	 * @return boolean
+	 */
 	@Override
 	public boolean eliminar(Cliente cliente) {
 		Connection connect = null;
@@ -66,7 +81,7 @@ public class ImplementaICliente implements ICliente {
 
 		boolean eliminar = false;
 
-		String sql = "DELETE FROM PRACTICA2 WHERE NOMBRE='" + cliente.getNombre() + "';";
+		String sql = "DELETE FROM `Practica2` WHERE NOMBRE='" + cliente.getNombre() + "';";
 		try {
 			connect = new Conexion().getConnection();
 			stm = connect.createStatement();
@@ -80,13 +95,16 @@ public class ImplementaICliente implements ICliente {
 		return eliminar;
 	}// Fin Función
 
+	/**
+	 * @return List
+	 */
 	@Override
 	public List<Cliente> obtener() {
 		Connection co = null;
 		Statement stm = null;
 		ResultSet rs = null;
 
-		String sql = "SELECT * FROM PRACTICA2 ORDER BY NOMBRE;";
+		String sql = "SELECT * FROM `Practica2` ORDER BY NOMBRE;";
 
 		List<Cliente> lista = new ArrayList<Cliente>();
 

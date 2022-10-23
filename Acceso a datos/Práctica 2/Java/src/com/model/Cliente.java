@@ -1,5 +1,9 @@
-package com.controlador;
+package com.model;
 
+/**
+ * @author Miguel Angel Rodriguez Dali
+ *
+ */
 public class Cliente {
 	// Atributos:
 	private String nombre;
@@ -21,46 +25,79 @@ public class Cliente {
 	}// Fin Constructor
 
 	// Métodos:
+	/**
+	 * @return String
+	 */
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}// Fin Función
 
+	/**
+	 * @param nombre
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}// Fin Procedimiento
 
+	/**
+	 * @return Integer
+	 */
 	public int getEdad() {
-		return edad;
+		return this.edad;
 	}// Fin Función
 
+	/**
+	 * @param edad
+	 */
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}// Fin Procedimiento
 
+	/**
+	 * @return String
+	 */
 	public String getCiudad() {
-		return ciudad;
+		return this.ciudad;
 	}// Fin Función
 
+	/**
+	 * @param ciudad
+	 */
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}// Fin Procedimiento
 
+	/**
+	 * @return String
+	 */
 	public String getPadre() {
-		return padre;
+		return this.padre;
 	}// Fin Función
 
+	/**
+	 * @param padre
+	 */
 	public void setPadre(String padre) {
 		this.padre = padre;
 	}// Fin Procedimiento
 
+	/**
+	 * @return String
+	 */
 	public String getMadre() {
-		return madre;
+		return this.madre;
 	}// Fin Función
 
+	/**
+	 * @param madre
+	 */
 	public void setMadre(String madre) {
 		this.madre = madre;
 	}// Fin Procedimiento
 
+	/**
+	 * @return String
+	 */
 	@Override
 	public String toString() {
 		return this.nombre + ", " + this.edad + ", " + this.ciudad + ", " + this.padre + ", " + this.madre;
