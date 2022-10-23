@@ -7,7 +7,7 @@ public class CrudJavaDemo {
 
 	public static void main(String[] args) {
 		// Entorno:
-		Cliente cliente = new Cliente("Romeo Santos", 23, "Sevilla", "José Antonio", "Margarita");
+		Cliente cliente = new Cliente("Miguel Ángel", 23, "Sevilla", "José Antonio", "Margarita");
 
 		// Algoritmo
 		// Crear al controlador

@@ -12,9 +12,7 @@ public class Conexion {
 	// Atributos:
 	private static Connection conn;
 	private static final String driver = "com.mysql.cj.jdbc.Driver";
-	private static final String user = "user";
-	private static final String password = "test";
-	private static final String url = "jdbc:mysql://192.168.1.41:3306/myDb";
+	private String user, password, url;
 
 	// Constructores:
 	// Este constructor crea y hace la conexión
@@ -22,16 +20,24 @@ public class Conexion {
 		conn = null;
 		try {
 			Class.forName(driver);
+			
+			AccesoProperties ap = new AccesoProperties();
+			this.user = ap.usuario;
+			this.password = ap.contrasenia;
+			this.url = ap.url;
+			
 			conn = DriverManager.getConnection(url, user, password);
-//			if (conn != null) {
-//				System.out.println("Conexion establecida..");
-//			} // Fin Si
 		} catch (ClassNotFoundException | SQLException ex) {
 			System.err.println("Error al conectar " + ex);
 		} // Fin try
 	}// Fin Constructor
 
 	// Métodos
+	public void asignaConexion() {
+		AccesoProperties ap = new AccesoProperties();
+		
+	}
+	
 	// Este método devuelve la conexión
 	/**
 	 * @return Connection

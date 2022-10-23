@@ -60,8 +60,7 @@ public class ControllerCliente {
 		List<Cliente> clientes = new ArrayList<Cliente>();
 		ICliente dao = new ImplementaICliente();
 		clientes = dao.obtener();
-		vista.verClientes(clientes);
 		
-		return null;
+		return clientes;
 	}// Fin Procedimiento
 }
