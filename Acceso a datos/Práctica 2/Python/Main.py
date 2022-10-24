@@ -1,6 +1,16 @@
 import pymysql
 
 
+def menu():
+    print("¿Qué desea hacer?:")
+    print("\t1. Dar de alta a usuario")
+    print("\t2. Modificar usuario")
+    print("\t3. Eliminar usuario")
+    print("\t4. Muestra usuarios")
+    print("\t5. Buscar usuario")
+    print("\t9. Salir")
+
+
 def consultarWhere(nombre):
     try:
         conexion = pymysql.connect(host='192.168.9.130',
@@ -135,19 +145,57 @@ def insertar(nombre, edad, ciudad, padre, madre):
         print("Ocurrió un error al conectar: ", e)
 
 
-consultarWhere('Luis')
-print("")
-consultarTodos()
-print("")
-edita("Luis", 0, "Sevilla", "Diosito", "La Virgen")
-print("")
-consultarTodos()
-print("")
-eliminar("Miguel")
-print("")
-consultarTodos()
-print("")
-insertar("Jose Miguel", 32, "Sevilla", "Jesus Cristo", "Maria Magdalena")
-print("")
-consultarTodos()
-print("")
+while True:
+    menu()
+    opc = int(input("Opción: "))
+
+    if opc == 1:
+        nombre = input("¿Qué nombre desea dar de alta?: ")
+        edad = int(input(f"¿Qué edad desea darle a {nombre}?: "))
+        ciudad = input(f"¿De qué ciudad es {nombre}?: ")
+        padre = input(f"¿Quién es el padre de {nombre}?: ")
+        madre = input(f"¿Quién es la madre de {nombre}?: ")
+
+        insertar(nombre, edad, ciudad, padre, madre)
+
+    elif opc == 2:
+        nombre = input("¿A quién desea modificar?: ")
+        edad = 0
+        ciudad = ""
+        padre = ""
+        madre = ""
+
+        var = input("¿Desea cambiarle la edad? (S/N): ")
+        if var == 's' or var == 'S':
+            edad = int(input("¿Qué edad desea ponerle? (>0): "))
+
+        var = input("¿Desea cambiarle la ciudad? (S/N): ")
+        if var == 's' or var == 'S':
+            ciudad = input("¿Qué ciudad desea ponerle? (!=""): ")
+
+        var = input("¿Desea cambiarle el padre? (S/N): ")
+        if var == 's' or var == 'S':
+            padre = input("¿Qué padre desea ponerle? (!=""): ")
+
+        var = input("¿Desea cambiarle la madre? (S/N): ")
+        if var == 's' or var == 'S':
+            madre = input("¿Qué madre desea ponerle? (!=""): ")
+
+        edita(nombre, edad, ciudad, padre, madre)
+
+    elif opc == 3:
+        nombre = input("¿A quién desea eliminar?: ")
+
+        eliminar(nombre)
+
+    elif opc == 4:
+        consultarTodos()
+
+    elif opc == 5:
+        nombre = input("¿A quién desea buscar?: ")
+        consultarWhere(nombre)
+
+    elif opc == 9:
+        break
+
+    print("")
