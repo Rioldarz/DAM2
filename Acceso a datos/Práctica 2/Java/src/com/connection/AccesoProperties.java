@@ -9,7 +9,7 @@ import java.io.IOException;
 public class AccesoProperties {
 	// Atributos:
 	File ruta;
-	String ip = "192.168.1.43:3306";
+	String ip = "192.168.9.130:3306";
 	String usuario = "user";
 	String contrasenia = "test";
 	String url = "jdbc:mysql://" + ip + "/myDb";
