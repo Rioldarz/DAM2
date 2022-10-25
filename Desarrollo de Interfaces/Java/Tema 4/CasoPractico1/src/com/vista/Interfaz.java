@@ -12,7 +12,6 @@ import de.wannawork.jcalendar.JCalendarPanel;
 public class Interfaz extends JFrame {
 
 	private JPanel contentPane;
-	private final JCalendarPanel calendarPanel = new JCalendarPanel();
 
 	/**
 	 * Launch the application.
@@ -51,6 +50,8 @@ public class Interfaz extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBounds(442, 50, 316, 454);
 		contentPane.add(panel);
-		panel.add(calendarPanel);
+		
+		JCalendarPanel Calendario = new JCalendarPanel();
+		panel.add(Calendario);
 	}
 }
