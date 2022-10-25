@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>eGames</title>
+        <link>https://www.eGames.net</link>
+        <description>Las últimas noticias para nuestros aficionados puedan estar al día.</description>
+        <copyright>CC 4.0 – BY-SA</copyright>
+
+        <item>
+            <title>Episodio 2 - Apoya al desarrollo indie</title>
+            <link>https://www.eGames.net/podcasts/episodio-2.html</link>
+            <description>Conoce mucho más sobre el desconocido mundo indie</description>
+            <author>eGames</author>
+            <pubDate>Thu, 12 Sep 2019</pubDate>
+            <enclosure url="https://www.eGames.net/podcasts/episodio2.ogg" type="audio/ogg" length="360" />
+        </item>
+
+        <item>
+            <title>Episodio 1 - Bienvenide</title>
+            <link>https://www.eGames.net/podcasts/episodio-1.html</link>
+            <description>En el episodio inaugural de nuestro primer podcast les contaremos cómo será esta temporada</description>
+            <author>eGames</author>
+            <pubDate>Thu, 5 Sep 2019</pubDate>
+            <enclosure url="https://www.eGames.net/podcasts/episodio1.ogg" type="audio/ogg" length="300" />
+       </item> 
+    </channel>
+</rss>
