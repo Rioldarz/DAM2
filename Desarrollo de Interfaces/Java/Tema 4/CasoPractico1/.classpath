@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Migue/Documents/GitHub/DAM2/Desarrollo de Interfaces/Java/Tema 4/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel Angel/Documents/GitHub/DAM2/Desarrollo de Interfaces/Java/Tema 4/jcalendar-1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

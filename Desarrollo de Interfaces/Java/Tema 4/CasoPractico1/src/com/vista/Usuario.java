@@ -1,23 +1,30 @@
 package com.vista;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import com.toedter.calendar.JMonthChooser;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class Interfaz extends JFrame {
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import com.modelo.GestionaRecargas;
+import com.toedter.calendar.JMonthChooser;
+
+
+
+public class Usuario extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField dineroIntroducido;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -25,7 +32,10 @@ public class Interfaz extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Interfaz frame = new Interfaz();
+					Usuario frame = new Usuario();
+					Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+					frame.setLocation(dim.width / 2 - frame.getSize().width / 2,
+							dim.height / 2 - frame.getSize().height / 2);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,10 +47,10 @@ public class Interfaz extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Interfaz() {
+	public Usuario() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 350, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -48,36 +58,43 @@ public class Interfaz extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel fotoMetro = new JLabel("");
-		fotoMetro.setIcon(new ImageIcon(Interfaz.class.getResource("/com/resources/Metro_petit.jpg")));
+		fotoMetro.setIcon(new ImageIcon(Usuario.class.getResource("/com/resources/Metro_petit.jpg")));
 		fotoMetro.setBounds(50, 50, 250, 125);
 		contentPane.add(fotoMetro);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(514, 220, 126, 29);
+		panel.setBounds(190, 178, 110, 30);
 		contentPane.add(panel);
 
 		JMonthChooser monthChooser = new JMonthChooser();
 		panel.add(monthChooser);
 
 		JLabel dinero = new JLabel("0€");
-		dinero.setBounds(607, 292, 45, 13);
+		dinero.setBounds(184, 214, 45, 13);
 		contentPane.add(dinero);
 
 		dineroIntroducido = new JTextField();
-		dineroIntroducido.setBounds(433, 289, 96, 19);
+		dineroIntroducido.setBounds(50, 210, 96, 19);
 		contentPane.add(dineroIntroducido);
 		dineroIntroducido.setColumns(10);
 
 		JLabel texto = new JLabel("Introduzca cantidad");
-		texto.setBounds(433, 266, 96, 13);
+		texto.setBounds(50, 186, 130, 13);
 		contentPane.add(texto);
 		JButton aceptar = new JButton("Aceptar");
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dinero.setText(dineroIntroducido.getText());
+				GestionaRecargas gr = new GestionaRecargas();
+				
+				int temp1 = monthChooser.getMonth();
+				String temp2 = dineroIntroducido.getText();
+				gr.setMes(temp1, temp2);
+				int salida = gr.getMes(temp1);
+				dinero.setText(salida + "€");
+				
 			}
 		});
-		aceptar.setBounds(492, 365, 85, 21);
+		aceptar.setBounds(130, 235, 85, 21);
 		contentPane.add(aceptar);
 	}
 }
