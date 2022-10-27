@@ -1,11 +1,8 @@
 package com.vista;
 
-import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-
 import com.modelo.GestionaRecargas;
 import com.toedter.calendar.JMonthChooser;
 import java.awt.Font;
@@ -35,9 +31,7 @@ public class Main extends JFrame {
 			public void run() {
 				try {
 					Main frame = new Main();
-					Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-					frame.setLocation(dim.width / 2 - frame.getSize().width / 2,
-							dim.height / 2 - frame.getSize().height / 2);
+					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
