@@ -55,12 +55,12 @@ public class Proveedores extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel texto = new JLabel("Nuestros proveedores son:");
 		texto.setFont(new Font("Roboto Medium", Font.PLAIN, 28));
 		texto.setBounds(30, 30, 350, 30);
 		contentPane.add(texto);
-		
+
 		JList<Object> listaProveedores = new JList<Object>();
 		listaProveedores.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		listaProveedores.setFont(new Font("Roboto", Font.PLAIN, 28));
@@ -69,22 +69,25 @@ public class Proveedores extends JFrame {
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
-			String[] values = new String[] {"Azulejos Domínguez S.L.", "MercaMadrid S.A.", "Jesús Mosaiquería", "Cristales S.A."};
+			String[] values = new String[] { "Azulejos Domínguez S.L.", "MercaMadrid S.A.", "Jesús Mosaiquería",
+					"Cristales S.A." };
+
 			public int getSize() {
 				return values.length;
 			}
+
 			public Object getElementAt(int index) {
 				return values[index];
 			}
 		});
 		listaProveedores.setBounds(30, 70, 350, 300);
 		contentPane.add(listaProveedores);
-		
+
 		JLabel logoMarca = new JLabel("");
 		logoMarca.setIcon(new ImageIcon(Proveedores.class.getResource("/com/recursos/R-removebg-preview_entre2.png")));
 		logoMarca.setBounds(500, 30, 238, 262);
 		contentPane.add(logoMarca);
-		
+
 		JButton atras = new JButton("Atrás");
 		atras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

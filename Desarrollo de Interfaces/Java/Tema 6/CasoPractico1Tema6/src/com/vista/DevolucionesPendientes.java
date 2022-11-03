@@ -32,6 +32,7 @@ public class DevolucionesPendientes extends JFrame {
 			public void run() {
 				try {
 					DevolucionesPendientes frame = new DevolucionesPendientes();
+					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
