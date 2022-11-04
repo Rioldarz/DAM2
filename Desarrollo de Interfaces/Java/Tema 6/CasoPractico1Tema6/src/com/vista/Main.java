@@ -60,7 +60,7 @@ public class Main extends JFrame {
 		clientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				Interfaz1.main(null);
-				Clientes.main(null);
+				Clientes.run();
 			}
 		});
 		clientes.setForeground(new Color(255, 255, 255));
@@ -72,7 +72,7 @@ public class Main extends JFrame {
 		JButton proveedores = new JButton("Proveedores");
 		proveedores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Proveedores.main(null);
+				Proveedores.run();
 			}
 		});
 		proveedores.setForeground(Color.WHITE);
@@ -84,7 +84,7 @@ public class Main extends JFrame {
 		JButton pedidosPendientes = new JButton("Pedidos pendientes");
 		pedidosPendientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PedidosPendientes.main(null);
+				PedidosPendientes.run();
 			}
 		});
 		pedidosPendientes.setForeground(Color.WHITE);
@@ -96,7 +96,7 @@ public class Main extends JFrame {
 		JButton pedidosPendientesDevolucion = new JButton("Devoluciones pendientes");
 		pedidosPendientesDevolucion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DevolucionesPendientes.main(null);
+				DevolucionesPendientes.run();
 			}
 		});
 		pedidosPendientesDevolucion.setForeground(Color.WHITE);
