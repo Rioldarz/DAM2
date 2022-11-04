@@ -89,7 +89,8 @@ public class Clientes extends JFrame {
 		JButton atras = new JButton("Atrás");
 		atras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Main.main(null);
+//				Main.main(null);
+				
 			}
 		});
 		atras.setForeground(new Color(255, 255, 255));
