@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -9,6 +11,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.JSpinner;
+import javax.swing.JProgressBar;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 
 public class Main extends JFrame {
 
@@ -93,6 +102,53 @@ public class Main extends JFrame {
 		x.setFont(new Font("Dialog", Font.BOLD, 15));
 		x.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(x);
-	}
 
+		JProgressBar velocidadAsignada = new JProgressBar();
+		velocidadAsignada.setBounds(30, 110, 115, 15);
+		frame.getContentPane().add(velocidadAsignada);
+
+		JSpinner spinner = new JSpinner();
+		spinner.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		spinner.setBounds(30, 80, 115, 20);
+		frame.getContentPane().add(spinner);
+		spinner.addChangeListener(new ChangeListener() {
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				velocidadAsignada.setValue(velocidadAsignada.getMaximum()/2);
+			}
+		});
+
+		JLabel textoVel = new JLabel("Velocidad del ratón");
+		textoVel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textoVel.setBounds(30, 50, 121, 15);
+		frame.getContentPane().add(textoVel);
+		
+		JLabel raton = new JLabel("");
+		raton.setIcon(new ImageIcon(Main.class.getResource("/com/recursos/725ab3c4-fc40-4a26-af32-600c2678d118 (2).jpg")));
+		raton.setBounds(400, 123, 313, 319);
+		frame.getContentPane().add(raton);
+		
+		JComboBox<Object> comboBox = new JComboBox<Object>();
+		comboBox.setModel(new DefaultComboBoxModel<Object>(new String[] {"Izquierdo", "Derecho"}));
+		comboBox.setBounds(400, 80, 120, 20);
+		frame.getContentPane().add(comboBox);
+		comboBox.addItemListener(new ItemListener() {
+			
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				if (comboBox.getAccessibleContext().toString().equalsIgnoreCase("Izquierdo")) {
+					raton.setIcon(new ImageIcon(Main.class.getResource("/com/recursos/725ab3c4-fc40-4a26-af32-600c2678d118 (2).jpg")));
+				}else {
+					raton.setIcon(new ImageIcon(Main.class.getResource("/com/recursos/725ab3c4-fc40-4a26-af32-600c2678d118_2 (1).jpg")));
+				}
+			}
+		});
+		
+		JLabel textoSel = new JLabel("Botón seleccionado");
+		textoSel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textoSel.setBounds(400, 50, 120, 15);
+		frame.getContentPane().add(textoSel);
+		
+		
+	}
 }
