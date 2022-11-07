@@ -1,18 +1,16 @@
-package grafico;
-
+import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import java.awt.Color;
 
-public class Grafico {
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
+public class Main {
 
 	private int xMouse, yMouse;
 	private JFrame frame;
@@ -24,7 +22,8 @@ public class Grafico {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Grafico window = new Grafico();
+					Main window = new Main();
+					window.frame.setLocationRelativeTo(null);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +35,7 @@ public class Grafico {
 	/**
 	 * Create the application.
 	 */
-	public Grafico() {
+	public Main() {
 		initialize();
 	}
 
@@ -47,10 +46,10 @@ public class Grafico {
 		frame = new JFrame();
 		frame.setUndecorated(true);
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 700, 500);
+		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
 		panel.addMouseMotionListener(new MouseMotionAdapter() {
@@ -58,7 +57,7 @@ public class Grafico {
 			public void mouseDragged(MouseEvent e) {
 				int x = e.getXOnScreen();
 				int y = e.getYOnScreen();
-				frame.setLocation(x-xMouse, y-yMouse);
+				frame.setLocation(x - xMouse, y - yMouse);
 			}
 		});
 		panel.addMouseListener(new MouseAdapter() {
@@ -66,13 +65,13 @@ public class Grafico {
 			public void mousePressed(MouseEvent e) {
 				xMouse = e.getX();
 				yMouse = e.getY();
-				
+
 			}
 		});
-		panel.setBounds(0, 0, 700, 35);
+		panel.setBounds(0, 0, 800, 30);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.LIGHT_GRAY);
 		panel_1.addMouseListener(new MouseAdapter() {
@@ -80,21 +79,23 @@ public class Grafico {
 			public void mouseClicked(MouseEvent e) {
 				System.exit(0);
 			}
+
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				panel_1.setBackground(Color.red);
 			}
+
 			@Override
 			public void mouseExited(MouseEvent e) {
 				panel_1.setBackground(Color.LIGHT_GRAY);
 			}
 		});
-		panel_1.setBounds(650, 0, 50, 35);
+		panel_1.setBounds(750, 0, 50, 30);
 		panel.add(panel_1);
-		
-		JLabel lblNewLabel = new JLabel("X");
-		lblNewLabel.setFont(new Font("Power Red and Blue", Font.BOLD, 30));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_1.add(lblNewLabel);
+
+		JLabel x = new JLabel("X");
+		x.setFont(new Font("Dialog", Font.BOLD, 15));
+		x.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_1.add(x);
 	}
 }
