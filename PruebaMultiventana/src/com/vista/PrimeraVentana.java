@@ -1,3 +1,5 @@
+package com.vista;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -10,8 +12,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class Main {
+public class PrimeraVentana extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int xMouse, yMouse;
 	private JFrame frame;
 
@@ -22,7 +28,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Main window = new Main();
+					PrimeraVentana window = new PrimeraVentana();
 					window.frame.setLocationRelativeTo(null);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -35,7 +41,7 @@ public class Main {
 	/**
 	 * Create the application.
 	 */
-	public Main() {
+	public PrimeraVentana() {
 
 		frame = new JFrame();
 		frame.setUndecorated(true);
