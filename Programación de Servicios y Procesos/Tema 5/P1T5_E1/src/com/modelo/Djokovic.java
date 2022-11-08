@@ -1,4 +1,4 @@
-package src.com.modelo;
+package com.modelo;
 
 public class Djokovic extends Thread {
 	public void run() {

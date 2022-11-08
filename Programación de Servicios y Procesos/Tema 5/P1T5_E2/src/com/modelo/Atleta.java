@@ -1,25 +1,56 @@
 package com.modelo;
 
-public class Atleta extends Thread {
-	private int dorsal;
-	
-	public Atleta(int num) {
-		this.dorsal = num;
-	}
-	
-	public int getDorsal() {
-		return dorsal;
-	}
+import java.util.Random;
 
+public class Atleta  extends Thread{
+	//Atributos:
+	private byte dorsal;
+	private byte segundos;
+	
+	//Constructores:
+	public Atleta() {}
+	
+	public Atleta(byte dors) {
+		this.dorsal = dors;
+	}
+	
+	//Métodos:
+	public byte getDorsal() {
+		return dorsal;
+	}//Fin Función
+
+	public void setDorsal(byte dorsal) {
+		this.dorsal = dorsal;
+	}//Fin Procedimiento
+
+	public byte getSegundos() {
+		return segundos;
+	}//Fin Función
+
+	public void setSegundos(byte segundos) {
+		this.segundos = segundos;
+	}//Fin Procedimiento
+	
+	@Override
 	public void run() {
-		while (true) {
-//			System.out.println("¡¡Yuuuaaaa!!");
-			Thread.yield();
-			try {
-				Thread.sleep(NORM_PRIORITY * 50);
-			} catch (InterruptedException e) {
-				System.out.println();
-			} // Fin try
-		} // Fin Mientras
-	}// Fin Procedimiento
+		generaSegundos();
+		Thread.yield();
+	}//Fin Procedimiento
+	
+	private void generaSegundos() {
+		Random aleatorio = new Random();
+		this.segundos = (byte) (aleatorio.nextInt(7)+1);
+	}//Fin Procedimiento
+	
+	@SuppressWarnings("deprecation")
+	public void notifica() {
+		stop();
+		System.out.println(this.dorsal + " llega.");
+	}
+	
+	@Override
+	public String toString() {
+		return "Dorsal: " + this.dorsal + "\nSegundos: " + this.segundos + "\n";
+	}//Fin Función
+	
 }
