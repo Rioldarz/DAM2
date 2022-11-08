@@ -18,6 +18,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.SpinnerNumberModel;
 
 public class Main extends JFrame {
 
@@ -104,17 +105,19 @@ public class Main extends JFrame {
 		panel_1.add(x);
 
 		JProgressBar velocidadAsignada = new JProgressBar();
+		velocidadAsignada.setMaximum(50);
 		velocidadAsignada.setBounds(30, 110, 115, 15);
 		frame.getContentPane().add(velocidadAsignada);
 
 		JSpinner spinner = new JSpinner();
+		spinner.setModel(new SpinnerNumberModel(0, 0, 50, 25));
 		spinner.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		spinner.setBounds(30, 80, 115, 20);
 		frame.getContentPane().add(spinner);
 		spinner.addChangeListener(new ChangeListener() {
 			@Override
 			public void stateChanged(ChangeEvent e) {
-				velocidadAsignada.setValue(velocidadAsignada.getMaximum()/2);
+				velocidadAsignada.setValue((int) spinner.getValue());
 			}
 		});
 
@@ -136,7 +139,7 @@ public class Main extends JFrame {
 			
 			@Override
 			public void itemStateChanged(ItemEvent e) {
-				if (comboBox.getAccessibleContext().toString().equalsIgnoreCase("Izquierdo")) {
+				if (e.getItem().toString().equalsIgnoreCase("izquierdo")) {
 					raton.setIcon(new ImageIcon(Main.class.getResource("/com/recursos/725ab3c4-fc40-4a26-af32-600c2678d118 (2).jpg")));
 				}else {
 					raton.setIcon(new ImageIcon(Main.class.getResource("/com/recursos/725ab3c4-fc40-4a26-af32-600c2678d118_2 (1).jpg")));
