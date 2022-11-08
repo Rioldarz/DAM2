@@ -1,14 +1,14 @@
+package com.modelo;
 
 public class Nadal extends Thread {
 	public void run() {
 		while (true) {
-			System.out.println("JAAA");
+			System.out.println("¡¡Jaaaaa!!");
 			Thread.yield();
 			try {
-				Thread.sleep(NORM_PRIORITY);
+				Thread.sleep(NORM_PRIORITY * 50);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println();
 			} // Fin try
 		} // Fin Mientras
 	}// Fin Procedimiento

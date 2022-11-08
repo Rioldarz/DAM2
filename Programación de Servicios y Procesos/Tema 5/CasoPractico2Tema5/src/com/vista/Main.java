@@ -1,9 +1,11 @@
+package com.vista;
+
+import com.modelo.*;
 
 public class Main {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Nadal nadalito = new Nadal();
-		Djokovij elRuso = new Djokovij();
+		Djokovic elRuso = new Djokovic();
 
 		nadalito.start();
 		elRuso.start();
