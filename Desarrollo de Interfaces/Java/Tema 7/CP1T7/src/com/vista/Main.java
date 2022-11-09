@@ -3,6 +3,7 @@ package com.vista;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
