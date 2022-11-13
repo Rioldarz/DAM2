@@ -1,18 +1,22 @@
 package com.vista;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JToolBar;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
@@ -48,16 +52,17 @@ public class Main extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 
-		JMenuBar menuBar = new JMenuBar();
-		JMenu menu = new JMenu("| | |");
-		JMenuItem size = new JMenu("Reservas");
-		JMenuItem reserva1 = new JMenu("28/11/12");
-		JMenuItem reserva2 = new JMenu("25/12/12");
-		menu.add(size);
-		size.add(reserva1);
-		size.add(reserva2);
-		menuBar.add(menu);
-		setJMenuBar(menuBar);
+//		JMenuBar menuBar = new JMenuBar();
+//		JMenu menu = new JMenu("| | |");
+//		JMenuItem size = new JMenu("Reservas");
+//		JMenuItem reserva1 = new JMenu("28/11/12");
+//		JMenuItem reserva2 = new JMenu("25/12/12");
+//		menu.add(size);
+//		size.add(reserva1);
+//		size.add(reserva2);
+//		menuBar.add(menu);
+//		setJMenuBar(menuBar);
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -97,6 +102,16 @@ public class Main extends JFrame {
 		telefono.setForeground(new Color(0, 200, 0));
 		telefono.setFont(new Font("Roboto", Font.PLAIN, 15));
 		telefono.setBackground(Color.GREEN);
+		
+		JPopupMenu popupMenu = new JPopupMenu();
+		addPopup(contentPane, popupMenu);
+		popupMenu.setBounds(0, 0, 5, 5);
+		
+		JMenuItem reservaciones = new JMenuItem("Reservas");
+		popupMenu.add(reservaciones);
+		
+		
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
 				.createSequentialGroup().addContainerGap()
@@ -135,5 +150,22 @@ public class Main extends JFrame {
 								.addComponent(telefono, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)))
 				.addContainerGap(154, Short.MAX_VALUE)));
 		contentPane.setLayout(gl_contentPane);
+	}
+	private static void addPopup(Component component, final JPopupMenu popup) {
+		component.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			public void mouseReleased(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			private void showMenu(MouseEvent e) {
+				popup.show(e.getComponent(), e.getX(), e.getY());
+			}
+		});
 	}
 }

@@ -1,0 +1,3 @@
+Dibujar en papel lo que queremos
+Pero sin meternos en cuestiones de diseño primando la funcionalidad
+

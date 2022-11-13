@@ -15,30 +15,30 @@ public class Carrera1 {
 			corredorCorriendo(a1);
 			wait();
 			
-			System.out.println("Sigue el atleta siguiente: ");
+			System.out.println("\nSigue el atleta siguiente: ");
 			corredorCorriendo(a2);
 			notify();
 			wait();
 			notify();
 			
-			System.out.println("Sigue el atleta siguiente: ");
+			System.out.println("\nSigue el atleta siguiente: ");
 			corredorCorriendo(a3);
 			notify();
 			wait();
 			notify();
 			
-			System.out.println("Sigue el atleta siguiente: ");
+			System.out.println("\nSigue el atleta siguiente: ");
 			corredorCorriendo(a3);
-			System.out.println("¡¡FIN DE LA CARRERA PARA EL EQUIPO " + nombreEquipo + "!!");
+			System.out.println("\n¡¡FIN DE LA CARRERA PARA EL EQUIPO " + nombreEquipo + "!!");
 			
 			this.tiempoActual2 = System.currentTimeMillis();
 			this.tiempoFinal = this.tiempoActual2-this.tiempoActual;
 			
-			System.out.println("Y ha terminado la carrera entera en: " + this.tiempoFinal + " segundos.");
+			System.out.println("\nY ha terminado la carrera entera en: " + this.tiempoFinal + " segundos.");
 			notify();
 			wait();
 			notify();
-			System.out.println("Sigue el atleta siguiente: ");
+			System.out.println("\nSigue el atleta siguiente: ");
 		}//Fin synchronized
 	}//Fin Procedimiento
 	
@@ -47,17 +47,17 @@ public class Carrera1 {
 		Thread.sleep(2000);
 		
 		synchronized(this) {
-			System.out.println("El jugador releva");
+			System.out.println("\nEl jugador releva");
 			Thread.sleep(1000);
 			notify();
 			wait();
 			
-			System.out.println("El jugador releva");
+			System.out.println("\nEl jugador releva");
 			Thread.sleep(1000);
 			notify();
 			wait();
 			
-			System.out.println("El jugador releva");
+			System.out.println("\nEl jugador releva");
 			Thread.sleep(1000);
 			notify();
 			wait();
@@ -73,7 +73,7 @@ public class Carrera1 {
 		this.distancia = 0;
 		this.tiempoActual = System.currentTimeMillis();
 		
-		System.out.println("Comienza el atleta " + a1.getNombre());
+		System.out.println("\nComienza el atleta " + a1.getNombre());
 		while(this.distancia<generaAleatorio(9, 11)) {
 			Thread.sleep(1000);
 			this.distancia++;
