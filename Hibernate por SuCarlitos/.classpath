@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="module" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/byte-buddy-1.11.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/classmate-1.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/dom4j-2.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/FastInfoset-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/hibernate-commons-annotations-5.1.2.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/hibernate-core-5.4.33.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/istack-commons-runtime-3.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/javassist-3.27.0-GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/javax.activation-api-1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/jaxb-api-2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/jaxb-runtime-2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/jboss-logging-3.3.2.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/lucene-core-5.5.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/lucene-queryparser-5.5.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/stax-ex-1.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mañana_posx/git/com.carlos.usuarios/lib/txw2-2.3.1.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
