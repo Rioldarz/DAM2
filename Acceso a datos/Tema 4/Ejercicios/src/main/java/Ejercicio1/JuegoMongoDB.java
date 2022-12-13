@@ -10,7 +10,7 @@ import org.bson.types.ObjectId;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
-
+//1
 public class JuegoMongoDB {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) throws ParseException {
