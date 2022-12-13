@@ -1,0 +1,53 @@
+[{
+  "_id": {
+    "$oid": "639872cff9ca1a0e1d821bdf"
+  },
+  "titulo": "Dead Cells",
+  "fecha_lanzamiento": {
+    "$date": {
+      "$numberLong": "1494367200000"
+    }
+  },
+  "diseniador": "Sebastien Benard",
+  "modo": "Un Jugador",
+  "plataforma": "Android, Nintendo Switch, PlayStation 4, Xbox One",
+  "desarrollador": "Motion Twin, Motion Twin Scop ARL",
+  "premio": "The Game Award For Best Action Game",
+  "genero": "Roguelike, Metroidvania",
+  "precio(euro)": 24.99
+},{
+  "_id": {
+    "$oid": "639872cff9ca1a0e1d821be0"
+  },
+  "titulo": "Pokemon Purpura",
+  "fecha_lanzamiento": {
+    "$date": {
+      "$numberLong": "1668726000000"
+    }
+  },
+  "modo": "Multijugador",
+  "plataforma": "Nintendo Switch",
+  "desarrollador": "Game Freak",
+  "genero": "RPG, Aventura",
+  "serie": "Pokemon",
+  "distribuidor": "Nintendo, The Pokemon Company, Nintendo of America Inc",
+  "precio(euro)": 59.99
+},{
+  "_id": {
+    "$oid": "639872cff9ca1a0e1d821be1"
+  },
+  "titulo": "Eternal Sonata",
+  "fecha_lanzamiento": {
+    "$date": {
+      "$numberLong": "1181772000000"
+    }
+  },
+  "diseniador": "Hiroya Hatsushiba, Motoi Sakuraba",
+  "modo": "Un Jugador, Cooperativo",
+  "plataforma": "PlayStation 3, Xbox 360",
+  "desarrollador": "Tri-Crescendo",
+  "genero": "J-RPG",
+  "nominacion": "Spike Video Game Award Al Mejor Juego De Rol",
+  "distribuidor": "Bandai Namco Entertainment",
+  "precio(euro)": 59.95
+}]
