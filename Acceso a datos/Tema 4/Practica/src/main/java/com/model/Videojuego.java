@@ -1,13 +1,14 @@
 package com.model;
 
 import java.text.SimpleDateFormat;
-import java.util.Iterator;
+import java.util.Date;
 
 @SuppressWarnings("unused")
 public class Videojuego {
 	// Atributos:
 	private String titulo = null;
-	private SimpleDateFormat fecha_lanzamiento = null;
+//	private SimpleDateFormat fecha_lanzamiento = null;
+	private Date fecha_lanzamiento = null;
 	private String diseniador = null;
 	private String modo = null;
 	private String plataforma = null;
@@ -23,14 +24,14 @@ public class Videojuego {
 	public Videojuego() {
 	}// Por defecto
 
-	public Videojuego(String titulo, SimpleDateFormat fecha, String genero, float precio) {
+	public Videojuego(String titulo, Date fecha, String genero, float precio) {
 		this.titulo = titulo;
 		this.fecha_lanzamiento = fecha;
 		this.genero = genero;
 		this.precio = precio;
 	}// Básico
 
-	public Videojuego(String titulo, SimpleDateFormat fecha, String diseniador, String modo, String plataforma,
+	public Videojuego(String titulo, Date fecha, String diseniador, String modo, String plataforma,
 			String desarrollador, String premio, String genero, String serie, String nominacion, String distribuidor,
 			float precio) {
 		this.titulo = titulo;
@@ -56,11 +57,13 @@ public class Videojuego {
 		this.titulo = titulo;
 	}// Fin Procedimiento
 
-	public SimpleDateFormat getFecha_lanzamiento() {
+//	public SimpleDateFormat getFecha_lanzamiento() {
+	public Date getFecha_lanzamiento() {
 		return fecha_lanzamiento;
 	}// Fin Función
 
-	public void setFecha_lanzamiento(SimpleDateFormat fecha_lanzamiento) {
+//	public void setFecha_lanzamiento(SimpleDateFormat fecha_lanzamiento) {
+	public void setFecha_lanzamiento(Date fecha_lanzamiento) {
 		this.fecha_lanzamiento = fecha_lanzamiento;
 	}// Fin Procedimiento
 
@@ -219,5 +222,25 @@ public class Videojuego {
 				+ salidas[3] + "Plataforma: " + salidas[4] + "Desarrollador: " + salidas[5] + "Premio: " + salidas[6]
 				+ "Género: " + salidas[7] + "Serie: " + salidas[8] + "Nominación: " + salidas[9] + "Distribuidor"
 				+ salidas[10] + "Precio(€): " + salidas[11];
+	}// Fin Función
+	
+	public String[] datosSeparados() {
+		String[] salida;
+		
+		salida = new String[12];
+		salida[0] = this.titulo;
+		salida[1] = String.valueOf(this.fecha_lanzamiento);
+		salida[2] = this.diseniador;
+		salida[3] = this.modo;
+		salida[4] = this.plataforma;
+		salida[5] = this.desarrollador;
+		salida[6] = this.premio;
+		salida[7] = this.genero;
+		salida[8] = this.serie;
+		salida[9] = this.nominacion;
+		salida[10] = this.distribuidor;
+		salida[11] = String.valueOf(this.precio);
+		
+		return salida;
 	}//Fin Función
 }
