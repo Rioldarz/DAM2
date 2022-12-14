@@ -23,7 +23,7 @@ public class MuestraTodoInicial {
 		// No queremos mostrar el id, y sí mostrar todos los juegos por ascendente de
 		// precios
 		Bson projection = fields(exclude("_id"));
-		FindIterable<Document> iterDoc = db.getCollection("Videojuegos").find().projection(projection)
+		FindIterable<Document> iterDoc = db.getCollection("videojuegos").find().projection(projection)
 				.sort(ascending("precio(euro)"));
 
 		Iterator it = iterDoc.iterator();

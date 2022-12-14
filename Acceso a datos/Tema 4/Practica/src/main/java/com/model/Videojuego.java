@@ -1,11 +1,13 @@
 package com.model;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.bson.types.ObjectId;
 
 @SuppressWarnings("unused")
 public class Videojuego {
 	// Atributos:
+	private ObjectId id;
 	private String titulo = null;
 //	private SimpleDateFormat fecha_lanzamiento = null;
 	private Date fecha_lanzamiento = null;
@@ -22,9 +24,11 @@ public class Videojuego {
 
 	// Constructores:
 	public Videojuego() {
+		this.id = new ObjectId();
 	}// Por defecto
 
 	public Videojuego(String titulo, Date fecha, String genero, float precio) {
+		this.id = new ObjectId();
 		this.titulo = titulo;
 		this.fecha_lanzamiento = fecha;
 		this.genero = genero;
@@ -34,6 +38,7 @@ public class Videojuego {
 	public Videojuego(String titulo, Date fecha, String diseniador, String modo, String plataforma,
 			String desarrollador, String premio, String genero, String serie, String nominacion, String distribuidor,
 			float precio) {
+		this.id = new ObjectId();
 		this.titulo = titulo;
 		this.fecha_lanzamiento = fecha;
 		this.diseniador = diseniador;
@@ -49,6 +54,10 @@ public class Videojuego {
 	}
 
 	// Métodos:
+	public ObjectId getId() {
+		return id;
+	}// Fin Función
+
 	public String getTitulo() {
 		return titulo;
 	}// Fin Función
@@ -223,10 +232,10 @@ public class Videojuego {
 				+ "Género: " + salidas[7] + "Serie: " + salidas[8] + "Nominación: " + salidas[9] + "Distribuidor"
 				+ salidas[10] + "Precio(€): " + salidas[11];
 	}// Fin Función
-	
+
 	public String[] datosSeparados() {
 		String[] salida;
-		
+
 		salida = new String[12];
 		salida[0] = this.titulo;
 		salida[1] = String.valueOf(this.fecha_lanzamiento);
@@ -240,7 +249,7 @@ public class Videojuego {
 		salida[9] = this.nominacion;
 		salida[10] = this.distribuidor;
 		salida[11] = String.valueOf(this.precio);
-		
+
 		return salida;
-	}//Fin Función
+	}// Fin Función
 }
