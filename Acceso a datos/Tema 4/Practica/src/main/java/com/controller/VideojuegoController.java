@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -23,7 +24,7 @@ public class VideojuegoController {
 	MongoClient mc = new MongoClient("localhost", 27017);
 	MongoDatabase db = mc.getDatabase("practica4");
 
-	public void createVideojuegos(Videojuego[] juegos) throws ParseException {
+	public void createVideojuegos(List<Videojuego> juegos) throws ParseException {
 		// Entorno:
 		Document vj;
 		SimpleDateFormat formatter;
@@ -110,7 +111,7 @@ public class VideojuegoController {
 		System.out.println("Videojuego guardado en la base de datos");
 	}// Fin Función
 
-	public void updateVideojuego(String titulo, String[] mods) throws ParseException {
+	public void updateVideojuego(String tituloOriginal, String[] mods) throws ParseException {
 		// Entorno:
 		SimpleDateFormat formatter;
 
@@ -121,74 +122,74 @@ public class VideojuegoController {
 			switch (i) {
 			case 0:
 				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", titulo),
+					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
 							new Document("$set", new Document("titulo", mods[0])));
-					titulo = mods[0];
+					tituloOriginal = mods[0];
 				} // Fin Si
 				break;
 			case 1:
 				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", titulo),
+					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
 							new Document("$set", new Document("fecha_lanzamiento", formatter.parseObject(mods[1]))));
 				} // Fin Si
 				break;
 			case 2:
 				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", titulo),
+					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
 							new Document("$set", new Document("diseniador", mods[2])));
 				} // Fin Si
 				break;
 			case 3:
 				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", titulo),
+					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
 							new Document("$set", new Document("modo", mods[3])));
 				} // Fin Si
 				break;
 			case 4:
 				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", titulo),
+					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
 							new Document("$set", new Document("plataforma", mods[4])));
 				} // Fin Si
 				break;
 			case 5:
 				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", titulo),
+					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
 							new Document("$set", new Document("desarrollador", mods[5])));
 				} // Fin Si
 				break;
 			case 6:
 				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", titulo),
+					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
 							new Document("$set", new Document("premio", mods[6])));
 				} // Fin Si
 				break;
 			case 7:
 				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", titulo),
+					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
 							new Document("$set", new Document("genero", mods[7])));
 				} // Fin Si
 				break;
 			case 8:
 				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", titulo),
+					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
 							new Document("$set", new Document("serie", mods[8])));
 				} // Fin Si
 				break;
 			case 9:
 				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", titulo),
+					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
 							new Document("$set", new Document("nominacion", mods[9])));
 				} // Fin Si
 				break;
 			case 10:
 				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", titulo),
+					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
 							new Document("$set", new Document("distribuidor", mods[9])));
 				} // Fin Si
 				break;
 			case 11:
 				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", titulo),
+					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
 							new Document("$set", new Document("precio(euro)", Float.parseFloat(mods[i]))));
 				} // Fin Si
 				break;
@@ -199,17 +200,12 @@ public class VideojuegoController {
 	}// Fin Función
 
 	public void deleteVideojuego(String titulo) {
-		// Entorno:
-		// Algoritmo:
 		db.getCollection("videojuegos").deleteOne(new Document("titulo", titulo));
-
 		System.out.println("Videojuego eliminado en la base de datos");
 	}// Fin Función
 
 	public void deleteVideojuegos() {
 		db.getCollection("videojuegos").drop();
-		;
-
 		System.out.println("Se han eliminado todos los videojuegos en la base de datos");
 	}// Fin Procedimiento
 

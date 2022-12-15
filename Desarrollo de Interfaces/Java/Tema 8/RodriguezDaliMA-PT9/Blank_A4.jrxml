@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0dc0cd72-38a8-40f3-bffb-3387c4444784">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<textField>
+				<reportElement x="227" y="24" width="123" height="30" uuid="c77eb83d-1a66-45cb-8917-11bacf5af37a"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Calibri" size="12" isBold="true"/>
+					<paragraph lineSpacingSize="1.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Novedades - Informe"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="160" y="10" width="50" height="50" uuid="da0cf6f8-df9b-46b1-b7c7-a0d4988ab792"/>
+				<imageExpression><![CDATA["/src/main/java/com/resources/1.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="360" y="20" width="50" height="50" uuid="7c05fd34-166a-44d6-9ae2-d1947172ee61"/>
+				<imageExpression><![CDATA["/src/main/java/com/resources/2.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="238" y="15" width="282" height="30" uuid="248cb3b0-f082-4262-a39a-cbe03f82b49d"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Datos de novedades para el ejercicio 2021"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="240" splitType="Stretch">
+			<textField>
+				<reportElement x="50" y="0" width="100" height="20" uuid="c7539a3a-d185-4dee-9ff4-14eab934bbe8"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Novedad 1"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="20" width="100" height="20" uuid="5aa28b62-e422-471f-88ac-d2b545961128"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Novedad 2"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="40" width="100" height="20" uuid="d7fc87e0-2810-4741-830c-7ab43381cfe1"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Novedad 3"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="60" width="100" height="20" uuid="4a70a4f0-5384-412a-80bd-fd799b44880e"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Novedad 4"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="80" width="100" height="20" uuid="3028ce71-566d-4fcd-ba55-f612e64b80f9"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Novedad 5"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="380" height="20" uuid="0954bbf1-c4d4-4100-a0a7-aa87eff49346"/>
+				<textFieldExpression><![CDATA["__________________________________________________________________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="20" width="380" height="20" uuid="95362bad-3066-4053-b82b-f35bdd5ca49a"/>
+				<textFieldExpression><![CDATA["__________________________________________________________________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="40" width="380" height="20" uuid="df208471-7d91-4d48-a4a6-4367c5657ee7"/>
+				<textFieldExpression><![CDATA["__________________________________________________________________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="60" width="380" height="20" uuid="867ee43c-c8a0-4623-961e-cafedea5477a"/>
+				<textFieldExpression><![CDATA["__________________________________________________________________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="80" width="380" height="20" uuid="036226fe-a371-4773-9842-36b09f34c0e8"/>
+				<textFieldExpression><![CDATA["__________________________________________________________________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="100" width="100" height="20" uuid="5dab688d-2aac-4a0d-a1ee-46b22ff9d2cf"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Novedad 6"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="100" width="380" height="20" uuid="8ae804d2-57da-418f-8523-9fce0a286040"/>
+				<textFieldExpression><![CDATA["__________________________________________________________________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="120" width="100" height="20" uuid="927bbe07-37e5-4f4b-8857-a03f0ea7eeb4"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Novedad 7"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="120" width="380" height="20" uuid="926826db-dccd-4e96-bce9-13421ccb351d"/>
+				<textFieldExpression><![CDATA["__________________________________________________________________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="140" width="100" height="20" uuid="89572844-f336-4af3-8b99-3400b18bd166"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Novedad 8"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="140" width="380" height="20" uuid="b5213abe-169e-4f05-a3db-e74d50a81af5"/>
+				<textFieldExpression><![CDATA["__________________________________________________________________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="160" width="100" height="20" uuid="d8dbae0f-e6f6-42aa-a87c-b6d591ed7160"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Novedad 9"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="180" width="100" height="20" uuid="da492d03-f121-4b17-9bf8-89af6f285868"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Novedad 10"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="200" width="100" height="20" uuid="f5606a20-4b72-4d1b-8cd4-a6e46335b3d9"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Novedad 11"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="160" width="380" height="20" uuid="b0a6c7a2-c395-4fe7-b23c-a7694fce65a3"/>
+				<textFieldExpression><![CDATA["__________________________________________________________________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="180" width="380" height="20" uuid="c1b08e95-93cc-4fec-8a14-6b5e0dc8999b"/>
+				<textFieldExpression><![CDATA["__________________________________________________________________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="200" width="380" height="20" uuid="8303f9d1-7661-4415-98a2-a72f4c218956"/>
+				<textFieldExpression><![CDATA["__________________________________________________________________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="220" width="100" height="20" uuid="5ae09119-22ef-4fd1-a4c8-454a54ea974e"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Novedad 12"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="220" width="380" height="20" uuid="de9c2068-c34a-4e61-8b33-d7a23f651814"/>
+				<textFieldExpression><![CDATA["__________________________________________________________________"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="300" y="10" width="100" height="30" uuid="e60acae9-aec7-4052-b714-016091db8e4b">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

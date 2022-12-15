@@ -1,6 +1,6 @@
 package com.model;
 
-import java.util.Date;
+//import java.util.Date;
 
 import org.bson.types.ObjectId;
 
@@ -10,7 +10,7 @@ public class Videojuego {
 	private ObjectId id;
 	private String titulo = null;
 //	private SimpleDateFormat fecha_lanzamiento = null;
-	private Date fecha_lanzamiento = null;
+	private String fecha_lanzamiento = null;
 	private String diseniador = null;
 	private String modo = null;
 	private String plataforma = null;
@@ -27,7 +27,7 @@ public class Videojuego {
 		this.id = new ObjectId();
 	}// Por defecto
 
-	public Videojuego(String titulo, Date fecha, String genero, float precio) {
+	public Videojuego(String titulo, String fecha, String genero, float precio) {
 		this.id = new ObjectId();
 		this.titulo = titulo;
 		this.fecha_lanzamiento = fecha;
@@ -35,7 +35,7 @@ public class Videojuego {
 		this.precio = precio;
 	}// Básico
 
-	public Videojuego(String titulo, Date fecha, String diseniador, String modo, String plataforma,
+	public Videojuego(String titulo, String fecha, String diseniador, String modo, String plataforma,
 			String desarrollador, String premio, String genero, String serie, String nominacion, String distribuidor,
 			float precio) {
 		this.id = new ObjectId();
@@ -67,12 +67,12 @@ public class Videojuego {
 	}// Fin Procedimiento
 
 //	public SimpleDateFormat getFecha_lanzamiento() {
-	public Date getFecha_lanzamiento() {
+	public String getFecha_lanzamiento() {
 		return fecha_lanzamiento;
 	}// Fin Función
 
 //	public void setFecha_lanzamiento(SimpleDateFormat fecha_lanzamiento) {
-	public void setFecha_lanzamiento(Date fecha_lanzamiento) {
+	public void setFecha_lanzamiento(String fecha_lanzamiento) {
 		this.fecha_lanzamiento = fecha_lanzamiento;
 	}// Fin Procedimiento
 
