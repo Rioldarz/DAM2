@@ -47,6 +47,8 @@ public class VideojuegoController {
 					break;
 				case 1:
 					if (datos[i] != null) {
+						//Una chapuza porque por algún motivo me resta un día
+						datos[i] = datos[i].replace(datos[i].substring(1, 2), String.valueOf(Byte.parseByte(datos[i].substring(1,2))+1));
 						vj.append("fecha_lanzamiento", formatter.parseObject(datos[i]));
 					} // Fin Si
 					break;
