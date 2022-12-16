@@ -105,6 +105,7 @@ public class Main {
 							"1. Desea insertar un videojuego sencillo (titulo, fecha(dd-mm-aaaa), genero, precio)");
 					System.out.println("2. Desea insertarlo con todos los datos");
 					System.out.println("3. O desea insertar datos sobre la marcha a su gusto");
+					System.out.print("Escoja: ");
 					temp = sc.nextByte();
 				} while (temp < 1 && temp > 3);
 
