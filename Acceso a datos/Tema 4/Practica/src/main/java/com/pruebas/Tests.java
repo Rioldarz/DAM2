@@ -25,15 +25,15 @@ public class Tests {
 //		controlador.buscaVideojuego("Dead Cells");
 //		controlador.buscaVideojuego("Josemi");
 //		controlador.mostrarTodos();
-//		controlador.deleteVideojuegos();
+		controlador.deleteVideojuegos();
 		
 //		vj = new Videojuego("Hollow Knight", "24-02-2017", "Metroidvania", 24.99F);
 //		vjs.add(vj);
 //		controlador.createVideojuegos(vjs);
 		
-		vj = new Videojuego("Hollow Knight (Switch)", "24-02-2019", "Metroidvania", 24.99F);
-		
-		controlador.updateVideojuego("Hollow Knight", vj.datosSeparados());
+//		vj = new Videojuego("Hollow Knight (Switch)", "24-02-2019", "Metroidvania", 24.99F);
+//		
+//		controlador.updateVideojuego("Hollow Knight", vj.datosSeparados());
 	}
 
 }
