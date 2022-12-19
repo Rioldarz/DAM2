@@ -48,6 +48,9 @@ public class VideojuegoController {
 				case 1:
 					if (datos[i] != null) {
 						//Una chapuza porque por algún motivo me resta un día
+						/*
+						 * Tener mucho cuidado aquí que creo que falla algo al meter en la BD
+						 */
 						datos[i] = datos[i].replace(datos[i].substring(1, 2), String.valueOf(Byte.parseByte(datos[i].substring(1,2))+1));
 						vj.append("fecha_lanzamiento", formatter.parseObject(datos[i]));
 					} // Fin Si

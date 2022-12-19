@@ -92,6 +92,7 @@ public class MainN {
 
 	/**
 	 * Este procedimiento provoca una explosión si la fecha no está bien formateada.
+	 * HAY QUE CORREGIR Y MEJORAR ESTO
 	 * 
 	 * @param fecha
 	 * @throws IOException
