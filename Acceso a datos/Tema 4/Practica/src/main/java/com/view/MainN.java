@@ -34,7 +34,7 @@ public class MainN {
 				try {
 					controlador.createVideojuegos(vjs);
 				} catch (ParseException e) {
-					System.out.println("Hubo un error al añadir el/los videojuego/s simple/s");
+					System.out.println("Hubo un error al añadir el/los videojuego/s");
 				} // Fin try
 				break;
 			}// Fin Según Sea
@@ -309,7 +309,7 @@ public class MainN {
 			 * estructura
 			 */
 			String fecha = "";
-			while (deseaContinuar("¿Quiere insertar la fecha del videojuego?")) {
+			if (deseaContinuar("¿Quiere insertar la fecha del videojuego?")) {
 				do {
 					System.out.print("Inserte la fecha: ");
 					try {
@@ -327,7 +327,7 @@ public class MainN {
 			 * la estructura
 			 */
 			String diseniador = "";
-			while (deseaContinuar("¿Quiere insertar al/los diseñador/es?")) {
+			if (deseaContinuar("¿Quiere insertar al/los diseñador/es?")) {
 				do {
 					System.out.print("Inserte al/los diseñador/es: ");
 					try {
@@ -339,7 +339,7 @@ public class MainN {
 			} // Fin Mientras
 			
 			String modo = "";
-			while(deseaContinuar("¿Quiere insertar uno o varios modos?")) {
+			if(deseaContinuar("¿Quiere insertar uno o varios modos?")) {
 				do {
 					System.out.print("Inserte el/los modo/s: ");
 					try {
@@ -349,6 +349,106 @@ public class MainN {
 					}//Fin try
 				} while (modo.isEmpty());
 			}//Fin Mientras
+			
+			String plataforma = "";
+			if(deseaContinuar("¿Quiere insertar una o varias plataformas?")) {
+				do {
+					System.out.print("Inserte la/las plataforma/s: ");
+					try {
+						plataforma = recogerDatos();
+					}catch (IOException e) {
+						System.out.println(base);
+					}//Fin try
+				} while (plataforma.isEmpty());
+			}//Fin Mientras
+			
+			String desarrollador = "";
+			if(deseaContinuar("¿Quiere insertar uno o varios desarrollador/es?")) {
+				do {
+					System.out.print("Inserte el/los desarrollador/es: ");
+					try {
+						desarrollador = recogerDatos();
+					}catch (IOException e) {
+						System.out.println(base);
+					}//Fin try
+				} while (desarrollador.isEmpty());
+			}//Fin Mientras
+			
+			String premio = "";
+			if(deseaContinuar("¿Quiere insertar uno o varios premio/s?")) {
+				do {
+					System.out.print("Inserte el/los premio/s: ");
+					try {
+						premio = recogerDatos();
+					}catch (IOException e) {
+						System.out.println(base);
+					}//Fin try
+				} while (premio.isEmpty());
+			}//Fin Mientras
+			
+			String genero = "";
+			if(deseaContinuar("¿Quiere insertar uno o varios genero/s?")) {
+				do {
+					System.out.print("Inserte el/los genero/s: ");
+					try {
+						genero = recogerDatos();
+					}catch (IOException e) {
+						System.out.println(base);
+					}//Fin try
+				} while (genero.isEmpty());
+			}//Fin Mientras
+			
+			String serie = "";
+			if(deseaContinuar("¿Quiere insertar una o varias serie/s?")) {
+				do {
+					System.out.print("Inserte la/las serie/s: ");
+					try {
+						serie = recogerDatos();
+					}catch (IOException e) {
+						System.out.println(base);
+					}//Fin try
+				} while (serie.isEmpty());
+			}//Fin Mientras
+			
+			String nominacion = "";
+			if(deseaContinuar("¿Quiere insertar una o varias nominacion/es?")) {
+				do {
+					System.out.print("Inserte la/las nominacion/es: ");
+					try {
+						nominacion = recogerDatos();
+					}catch (IOException e) {
+						System.out.println(base);
+					}//Fin try
+				} while (nominacion.isEmpty());
+			}//Fin Mientras
+			
+			String distribuidor = "";
+			if(deseaContinuar("¿Quiere insertar uno o varios distribuidor/es?")) {
+				do {
+					System.out.print("Inserte el/los distribuidor/es: ");
+					try {
+						distribuidor = recogerDatos();
+					}catch (IOException e) {
+						System.out.println(base);
+					}//Fin try
+				} while (distribuidor.isEmpty());
+			}//Fin Mientras
+			
+			Float precio = 0f;
+			if(deseaContinuar("¿Quiere insertar el precio?")) {
+				do {
+					System.out.print("Inserte el precio del juego: ");
+					try {
+						precio = Float.parseFloat(recogerDatos());
+					} catch (IOException e) {
+						System.out.println("No ha insertado un precio válido");
+						precio = 0f;
+					} // Fin try
+				} while (precio == 0);
+			}//Fin Mientras
+			
+			Videojuego vj = new Videojuego(titulo, fecha, diseniador, modo, plataforma, desarrollador, premio, genero, serie, nominacion, distribuidor, precio);
+			vjs.add(vj);
 			break;
 		}// Fin Según Sea
 		return vjs;

@@ -41,12 +41,12 @@ public class VideojuegoController {
 			for (byte i = 0; i < datos.length; i++) {
 				switch (i) {
 				case 0:
-					if (datos[i] != null) {
+					if (datos[i] != null && !datos[i].isEmpty()) {
 						vj.append("titulo", datos[i]);
 					} // Fin Si
 					break;
 				case 1:
-					if (datos[i] != null) {
+					if (datos[i] != null && !datos[i].isEmpty()) {
 						//Una chapuza porque por algún motivo me resta un día
 						/*
 						 * Tener mucho cuidado aquí que creo que falla algo al meter en la BD
@@ -56,52 +56,52 @@ public class VideojuegoController {
 					} // Fin Si
 					break;
 				case 2:
-					if (datos[i] != null) {
+					if (datos[i] != null && !datos[i].isEmpty()) {
 						vj.append("diseniador", datos[i]);
 					} // Fin Si
 					break;
 				case 3:
-					if (datos[i] != null) {
+					if (datos[i] != null && !datos[i].isEmpty()) {
 						vj.append("modo", datos[i]);
 					} // Fin Si
 					break;
 				case 4:
-					if (datos[i] != null) {
+					if (datos[i] != null && !datos[i].isEmpty()) {
 						vj.append("plataforma", datos[i]);
 					} // Fin Si
 					break;
 				case 5:
-					if (datos[i] != null) {
+					if (datos[i] != null && !datos[i].isEmpty()) {
 						vj.append("desarrollador", datos[i]);
 					} // Fin Si
 					break;
 				case 6:
-					if (datos[i] != null) {
+					if (datos[i] != null && !datos[i].isEmpty()) {
 						vj.append("premio", datos[i]);
 					} // Fin Si
 					break;
 				case 7:
-					if (datos[i] != null) {
+					if (datos[i] != null && !datos[i].isEmpty()) {
 						vj.append("genero", datos[i]);
 					} // Fin Si
 					break;
 				case 8:
-					if (datos[i] != null) {
+					if (datos[i] != null && !datos[i].isEmpty()) {
 						vj.append("serie", datos[i]);
 					} // Fin Si
 					break;
 				case 9:
-					if (datos[i] != null) {
+					if (datos[i] != null && !datos[i].isEmpty()) {
 						vj.append("nominacion", datos[i]);
 					} // Fin Si
 					break;
 				case 10:
-					if (datos[i] != null) {
+					if (datos[i] != null && !datos[i].isEmpty()) {
 						vj.append("distribuidor", datos[i]);
 					} // Fin Si
 					break;
 				case 11:
-					if (datos[i] != null) {
+					if (!datos[i].equalsIgnoreCase("0")) {
 						vj.append("precio(euro)", Float.parseFloat(datos[i]));
 					} // Fin Si
 					break;
