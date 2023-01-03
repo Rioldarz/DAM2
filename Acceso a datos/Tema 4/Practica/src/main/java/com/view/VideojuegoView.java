@@ -26,6 +26,7 @@ public class VideojuegoView {
 			 */
 			case 1:
 				//Entorno:
+				Videojuego vj = null;
 				List<Videojuego> vjs = new LinkedList<Videojuego>();
 				byte temp = 0;
 				
@@ -45,15 +46,26 @@ public class VideojuegoView {
 						} // Fin try
 					} while (temp < 1 && temp > 2);
 					
+					/**
+					 * Dentro de este bloque, según la opción de inserción que desee. Se hará uno u
+					 * otro.
+					 */
+					switch (temp) {
+					/**
+					 * En el primer caso hacemos una inserción sencilla pero segura.
+					 */
+					case 1:
+						vj = RecolectaInsercion.recoleccionDatosSencillos();
+						break;
+					case 2:
+						vj = RecolectaInsercion.recoleccionDatos();
+						break;
+					}//Fin Según Sea
+					
+					vjs.add(vj);
 					
 				} while (RecolectaInsercion.deseaContinuar("¿Desea insertar otro videojuego?"));
 				
-//				List<Videojuego> vjs = recoleccionDatos();
-				
-				
-				
-				
-
 				/**
 				 * En el siguiente bloque hacemos la inserción a la BD.
 				 */

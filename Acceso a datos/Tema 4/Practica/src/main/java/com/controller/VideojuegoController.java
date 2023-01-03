@@ -24,6 +24,18 @@ public class VideojuegoController {
 	MongoClient mc = new MongoClient("localhost", 27017);
 	MongoDatabase db = mc.getDatabase("practica4");
 
+	public static String arreglaFecha(String fecha) {
+		String salida;
+
+		try {
+			salida = fecha.replace(fecha.substring(1, 2), String.valueOf(Byte.parseByte(fecha.substring(1, 2)) + 1));
+		} catch (NumberFormatException nfe) {
+			salida = null;
+		} // Fin try
+
+		return salida;
+	}// Fin Función
+
 	public void createVideojuegos(List<Videojuego> juegos) throws ParseException {
 		// Entorno:
 		Document vj;
@@ -41,62 +53,63 @@ public class VideojuegoController {
 			for (byte i = 0; i < datos.length; i++) {
 				switch (i) {
 				case 0:
-					if (datos[i] != null && !datos[i].isEmpty()) {
+					if (datos[i] != null) {
 						vj.append("titulo", datos[i]);
 					} // Fin Si
 					break;
 				case 1:
-					if (datos[i] != null && !datos[i].isEmpty()) {
-						//Una chapuza porque por algún motivo me resta un día
-						/*
-						 * Tener mucho cuidado aquí que creo que falla algo al meter en la BD
-						 */
-						datos[i] = datos[i].replace(datos[i].substring(1, 2), String.valueOf(Byte.parseByte(datos[i].substring(1,2))+1));
-						vj.append("fecha_lanzamiento", formatter.parseObject(datos[i]));
+					if (datos[i] != null) {
+						// Una chapuza porque por algún motivo me resta un día
+						datos[i] = arreglaFecha(datos[i]);
+						if (datos[i] == null) {
+
+						} else {
+							vj.append("fecha_lanzamiento", formatter.parseObject(datos[i]));
+						} // Fin Si
 					} // Fin Si
 					break;
 				case 2:
-					if (datos[i] != null && !datos[i].isEmpty()) {
+					if (datos[i] != null) {
 						vj.append("diseniador", datos[i]);
 					} // Fin Si
 					break;
 				case 3:
-					if (datos[i] != null && !datos[i].isEmpty()) {
+					if (datos[i] != null) {
 						vj.append("modo", datos[i]);
 					} // Fin Si
 					break;
 				case 4:
-					if (datos[i] != null && !datos[i].isEmpty()) {
+					if (datos[i] != null) {
 						vj.append("plataforma", datos[i]);
 					} // Fin Si
 					break;
 				case 5:
-					if (datos[i] != null && !datos[i].isEmpty()) {
+					if (datos[i] != null) {
 						vj.append("desarrollador", datos[i]);
 					} // Fin Si
 					break;
 				case 6:
-					if (datos[i] != null && !datos[i].isEmpty()) {
+					if (datos[i] != null) {
 						vj.append("premio", datos[i]);
 					} // Fin Si
 					break;
 				case 7:
-					if (datos[i] != null && !datos[i].isEmpty()) {
+					if (datos[i] != null) {
 						vj.append("genero", datos[i]);
 					} // Fin Si
 					break;
 				case 8:
-					if (datos[i] != null && !datos[i].isEmpty()) {
+					if (datos[i] != null) {
 						vj.append("serie", datos[i]);
 					} // Fin Si
 					break;
 				case 9:
-					if (datos[i] != null && !datos[i].isEmpty()) {
+					if (datos[i] != null) {
 						vj.append("nominacion", datos[i]);
 					} // Fin Si
 					break;
 				case 10:
-					if (datos[i] != null && !datos[i].isEmpty()) {
+					if (datos[i] != null) {
 						vj.append("distribuidor", datos[i]);
 					} // Fin Si
 					break;

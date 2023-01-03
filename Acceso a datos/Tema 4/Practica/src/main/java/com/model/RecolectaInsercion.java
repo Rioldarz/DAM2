@@ -102,7 +102,7 @@ public class RecolectaInsercion {
 					System.out.println("No ha introducido una fecha válida");
 					fecha = null;
 				} // Fin try
-			} while (fecha.isEmpty() || fecha == null);
+			} while (fecha == null);
 		} // Fin Mientras
 
 		if (deseaContinuar("¿Quiere insertar al/los diseñador/es?")) {
