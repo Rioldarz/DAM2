@@ -28,7 +28,7 @@ public class VideojuegoController {
 		String salida;
 
 		try {
-			salida = fecha.replace(fecha.substring(1, 2), String.valueOf(Byte.parseByte(fecha.substring(1, 2)) + 1));
+			salida = fecha.replaceFirst(fecha.substring(1, 2), String.valueOf(Byte.parseByte(fecha.substring(1, 2)) + 1));
 		} catch (NumberFormatException nfe) {
 			salida = null;
 		} // Fin try
@@ -63,7 +63,7 @@ public class VideojuegoController {
 						datos[i] = arreglaFecha(datos[i]);
 						if (datos[i] == null) {
 
-						} else {
+						} else {//Esto es doble chapuza porque sí o sí entra aquí dentro haga lo que haga
 							vj.append("fecha_lanzamiento", formatter.parseObject(datos[i]));
 						} // Fin Si
 					} // Fin Si
