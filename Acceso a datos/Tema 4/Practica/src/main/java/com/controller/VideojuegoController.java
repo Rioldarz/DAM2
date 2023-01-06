@@ -28,7 +28,8 @@ public class VideojuegoController {
 		String salida;
 
 		try {
-			salida = fecha.replaceFirst(fecha.substring(1, 2), String.valueOf(Byte.parseByte(fecha.substring(1, 2)) + 1));
+			salida = fecha.replaceFirst(fecha.substring(1, 2),
+					String.valueOf(Byte.parseByte(fecha.substring(1, 2)) + 1));
 		} catch (NumberFormatException nfe) {
 			salida = null;
 		} // Fin try
@@ -63,7 +64,7 @@ public class VideojuegoController {
 						datos[i] = arreglaFecha(datos[i]);
 						if (datos[i] == null) {
 
-						} else {//Esto es doble chapuza porque sí o sí entra aquí dentro haga lo que haga
+						} else {// Esto es doble chapuza porque sí o sí entra aquí dentro haga lo que haga
 							vj.append("fecha_lanzamiento", formatter.parseObject(datos[i]));
 						} // Fin Si
 					} // Fin Si
@@ -114,9 +115,14 @@ public class VideojuegoController {
 					} // Fin Si
 					break;
 				case 11:
-					if (!datos[i].equalsIgnoreCase("0")) {
-						vj.append("precio(euro)", Float.parseFloat(datos[i]));
-					} // Fin Si
+					try {
+						float temp = Float.parseFloat(datos[i]);
+
+						if (temp > 0) {
+							vj.append("precio(euro)", Float.parseFloat(datos[i]));
+						} // Fin Si
+					} catch (NumberFormatException e) {
+					} // Fin try
 					break;
 				}// Fin Según Sea
 			} // Fin Para
@@ -147,9 +153,16 @@ public class VideojuegoController {
 				break;
 			case 1:
 				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
-							new Document("$set", new Document("fecha_lanzamiento", formatter.parseObject(mods[1]))));
+					// Una chapuza porque por algún motivo me resta un día
+					mods[i] = arreglaFecha(mods[i]);
+					if (mods[i] == null) {
+
+					} else {// Esto es doble chapuza porque sí o sí entra aquí dentro haga lo que haga
+						db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal), new Document(
+								"$set", new Document("fecha_lanzamiento", formatter.parseObject(mods[1]))));
+					} // Fin Si
 				} // Fin Si
+
 				break;
 			case 2:
 				if (mods[i] != null) {
@@ -206,10 +219,16 @@ public class VideojuegoController {
 				} // Fin Si
 				break;
 			case 11:
-				if (mods[i] != null) {
-					db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
-							new Document("$set", new Document("precio(euro)", Float.parseFloat(mods[i]))));
-				} // Fin Si
+				try {
+					float temp = Float.parseFloat(mods[i]);
+
+					if (temp > 0) {
+						db.getCollection("videojuegos").updateOne(new Document("titulo", tituloOriginal),
+								new Document("$set", new Document("precio(euro)", Float.parseFloat(mods[i]))));
+					} // Fin Si
+				} catch (NumberFormatException e) {
+				} // Fin try
+
 				break;
 			}// Fin Según Sea
 		} // Fin Para
@@ -217,9 +236,20 @@ public class VideojuegoController {
 		System.out.println("Videojuego modificado en la base de datos");
 	}// Fin Función
 
-	public void deleteVideojuego(String titulo) {
-		db.getCollection("videojuegos").deleteOne(new Document("titulo", titulo));
-		System.out.println("Videojuego eliminado en la base de datos");
+	public boolean deleteVideojuego(String titulo) {
+		//Entorno + inicialización:
+		boolean salida = true;
+		
+		//Algoritmo
+		if (corroboraVideojuego(titulo)) {
+			db.getCollection("videojuegos").deleteOne(new Document("titulo", titulo));
+			System.out.println("Videojuego eliminado en la base de datos");
+		}else {
+			salida = false;
+			System.out.println("No existe ningún juego con ese nombre.");
+		}//Fin Si
+		
+		return salida;
 	}// Fin Función
 
 	public void deleteVideojuegos() {
@@ -243,6 +273,24 @@ public class VideojuegoController {
 			Document findDoc = (Document) it.next();
 			System.out.println(findDoc.toJson());
 		} // Fin Mientras
+	}// Fin Procedimiento
+
+	@SuppressWarnings("rawtypes")
+	public boolean corroboraVideojuego(String nombre) {
+		Bson projection = fields(exclude("_id"), include("titulo"));
+		FindIterable<Document> iterDoc = db.getCollection("videojuegos").find(eq("titulo", nombre))
+				.projection(projection).sort(ascending("titulo"));
+
+		Iterator it = iterDoc.iterator();
+
+		boolean existe = true;
+		if (!it.hasNext()) {
+			existe = false;
+
+			System.out.println("No existe ningún juego con ese nombre.");
+		} // Fin Si
+
+		return existe;
 	}// Fin Procedimiento
 
 	@SuppressWarnings("rawtypes")

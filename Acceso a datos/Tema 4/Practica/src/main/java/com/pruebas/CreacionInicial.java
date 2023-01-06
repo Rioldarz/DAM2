@@ -8,6 +8,7 @@ import java.util.List;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import com.controller.VideojuegoController;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 
@@ -20,6 +21,9 @@ public class CreacionInicial {
 
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 
+		VideojuegoController controlador = new VideojuegoController();
+		controlador.deleteVideojuegos();
+		
 		Document juego1 = new Document().append("_id", new ObjectId())
 				.append("titulo", "Dead Cells")
 				.append("fecha_lanzamiento", formatter.parse("10-05-2017"))

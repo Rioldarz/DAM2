@@ -15,7 +15,7 @@ public class VideojuegoView {
 		// Entorno + inicialización:
 		VideojuegoController controlador = new VideojuegoController();
 		byte opc;
-		
+
 		// Algoritmo:
 		do {
 			opc = menu();
@@ -25,14 +25,15 @@ public class VideojuegoView {
 			 * El primer caso es para insertar en la BD con diferentes posibilidades.
 			 */
 			case 1:
-				//Entorno:
+				// Entorno + inicialización:
 				Videojuego vj = null;
 				List<Videojuego> vjs = new LinkedList<Videojuego>();
 				byte temp = 0;
-				
+
 				do {
 					do {
-						System.out.println("1. Desea insertar un videojuego sencillo (titulo, fecha(dd-mm-aaaa), genero, precio)");
+						System.out.println(
+								"1. Desea insertar un videojuego sencillo (titulo, fecha(dd-mm-aaaa), genero, precio)");
 						System.out.println("2. O Desea insertarlo con todos los datos que quiera");
 						System.out.print("Escoja: ");
 
@@ -45,7 +46,7 @@ public class VideojuegoView {
 							System.out.println("Error E/S");
 						} // Fin try
 					} while (temp < 1 && temp > 2);
-					
+
 					/**
 					 * Dentro de este bloque, según la opción de inserción que desee. Se hará uno u
 					 * otro.
@@ -60,12 +61,12 @@ public class VideojuegoView {
 					case 2:
 						vj = RecolectaInsercion.recoleccionDatos();
 						break;
-					}//Fin Según Sea
-					
+					}// Fin Según Sea
+
 					vjs.add(vj);
-					
+
 				} while (RecolectaInsercion.deseaContinuar("¿Desea insertar otro videojuego?"));
-				
+
 				/**
 				 * En el siguiente bloque hacemos la inserción a la BD.
 				 */
@@ -74,6 +75,73 @@ public class VideojuegoView {
 				} catch (ParseException e) {
 					System.out.println("Hubo un error al añadir el/los videojuego/s");
 				} // Fin try
+				break;
+			case 2:
+				// Entorno + inicialización:
+				String titJuego = null;
+
+				// Algoritmo:
+				do {
+					do {
+						System.out.print("Inserte el título del juego que desea modificar: ");
+						try {
+							titJuego = RecolectaInsercion.recogerDatos();
+						} catch (IOException e) {
+							System.out.println("Error E/S");
+						} // Fin try
+
+						while (titJuego == null || titJuego.isEmpty()) {
+							System.out.print("Inserte el título del juego que desea modificar: ");
+							try {
+								titJuego = RecolectaInsercion.recogerDatos();
+							} catch (IOException e) {
+								System.out.println("Error E/S");
+							} // Fin try
+						} // Fin Mientras
+					} while (!controlador.corroboraVideojuego(titJuego));
+
+					System.out.println("Ahora inserte los datos que le gustaría modificar:");
+					vj = RecolectaInsercion.recoleccionDatos();
+
+					try {
+						controlador.updateVideojuego(titJuego, vj.datosSeparados());
+					} catch (ParseException e) {
+						System.out.println("Hubo un error al actualizar el videojuego");
+					} // Fin try
+				} while (RecolectaInsercion.deseaContinuar("¿Desea actualizar otro videojuego?"));
+
+				break;
+			case 3:
+				// Entorno + inicialización:
+				String tit = null;
+
+				// Algoritmo:
+				do {
+					do {
+						System.out.print("Inserte el nombre del videojuego que desea eliminar: ");
+						try {
+							tit = RecolectaInsercion.recogerDatos();
+						} catch (IOException e) {
+							System.out.println("Error E/S");
+						} // Fin try
+
+						while (tit == null || tit.isEmpty()) {
+							System.out.print("Inserte el nombre del videojuego que desea eliminar: ");
+							try {
+								tit = RecolectaInsercion.recogerDatos();
+							} catch (IOException e) {
+								System.out.println("Error E/S");
+							} // Fin try
+						} // Fin Mientras
+					} while (!controlador.deleteVideojuego(tit));
+				} while (RecolectaInsercion.deseaContinuar("¿Desea eliminar otro videojuego?"));
+
+				break;
+			case 4:
+				if (RecolectaInsercion.deseaContinuar("¿Está seguro de querer borrar todos los videojuegos?")) {
+					controlador.deleteVideojuegos();
+				} // Fin Si
+
 				break;
 			}// Fin Según Sea
 		} while (opc != 9);
