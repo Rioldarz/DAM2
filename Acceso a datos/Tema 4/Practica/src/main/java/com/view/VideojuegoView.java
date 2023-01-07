@@ -143,6 +143,38 @@ public class VideojuegoView {
 				} // Fin Si
 
 				break;
+			case 5:
+				if (RecolectaInsercion.deseaContinuar("¿Está seguro de querer mostrar todos los videojuegos?")) {
+					controlador.mostrarTodos();
+				} // Fin Si
+				
+				break;
+			case 6:
+				// Entorno + inicialización:
+				String titu = null;
+
+				// Algoritmo:
+				do {
+					do {
+						System.out.print("Inserte el nombre del videojuego que desea buscar: ");
+						try {
+							titu = RecolectaInsercion.recogerDatos();
+						} catch (IOException e) {
+							System.out.println("Error E/S");
+						} // Fin try
+
+						while (titu == null || titu.isEmpty()) {
+							System.out.print("Inserte el nombre del videojuego que desea buscar: ");
+							try {
+								tit = RecolectaInsercion.recogerDatos();
+							} catch (IOException e) {
+								System.out.println("Error E/S");
+							} // Fin try
+						} // Fin Mientras
+					} while (!controlador.buscaVideojuego(titu));
+				} while (RecolectaInsercion.deseaContinuar("¿Desea buscar otro videojuego?"));
+				
+				break;
 			}// Fin Según Sea
 		} while (opc != 9);
 	}// Fin Programa
@@ -165,7 +197,7 @@ public class VideojuegoView {
 			System.out.println("\t2. Modificar uno o varios videojuegos");
 			System.out.println("\t3. Eliminar videojuego");
 			System.out.println("\t4. Eliminar todos los videojuegos");
-			System.out.println("\t5. Muestra videojuego");
+			System.out.println("\t5. Mostrar videojuegos");
 			System.out.println("\t6. Buscar videojuego");
 			System.out.println("\t9. Salir");
 			System.out.print("Opción: ");

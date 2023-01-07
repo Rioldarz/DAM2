@@ -237,18 +237,15 @@ public class VideojuegoController {
 	}// Fin Función
 
 	public boolean deleteVideojuego(String titulo) {
-		//Entorno + inicialización:
+		// Entorno + inicialización:
 		boolean salida = true;
-		
-		//Algoritmo
+
+		// Algoritmo
 		if (corroboraVideojuego(titulo)) {
 			db.getCollection("videojuegos").deleteOne(new Document("titulo", titulo));
 			System.out.println("Videojuego eliminado en la base de datos");
-		}else {
-			salida = false;
-			System.out.println("No existe ningún juego con ese nombre.");
-		}//Fin Si
-		
+		}// Fin Si
+
 		return salida;
 	}// Fin Función
 
@@ -258,21 +255,26 @@ public class VideojuegoController {
 	}// Fin Procedimiento
 
 	@SuppressWarnings("rawtypes")
-	public void buscaVideojuego(String nombre) {
-		Bson projection = fields(exclude("_id"), include("titulo"));
+	public boolean buscaVideojuego(String nombre) {
+		// Entorno + inicialización:
+		boolean salida = true;
+
+		// Algoritmo
+		Bson projection = fields(exclude("_id"));
 		FindIterable<Document> iterDoc = db.getCollection("videojuegos").find(eq("titulo", nombre))
 				.projection(projection).sort(ascending("titulo"));
 
 		Iterator it = iterDoc.iterator();
 
-		if (!it.hasNext()) {
-			System.out.println("No existe ningún juego con ese nombre.");
-		} // Fin Si
+		if (corroboraVideojuego(nombre)) {
+			while (it.hasNext()) {
+				Document findDoc = (Document) it.next();
+				System.out.println(findDoc.toJson());
+			} // Fin Mientras
+		}// Fin Si
+		
+		return salida;
 
-		while (it.hasNext()) {
-			Document findDoc = (Document) it.next();
-			System.out.println(findDoc.toJson());
-		} // Fin Mientras
 	}// Fin Procedimiento
 
 	@SuppressWarnings("rawtypes")
