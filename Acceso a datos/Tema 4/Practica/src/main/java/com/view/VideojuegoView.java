@@ -17,6 +17,7 @@ public class VideojuegoView {
 		byte opc;
 
 		// Algoritmo:
+
 		do {
 			opc = menu();
 
@@ -113,6 +114,49 @@ public class VideojuegoView {
 				break;
 			case 3:
 				// Entorno + inicialización:
+				String nombreJuego = null;
+				Videojuego vj1 = null;
+				List<Videojuego> vjs1 = new LinkedList<Videojuego>();
+
+				// Algoritmo:
+				do {
+					System.out.print("¿Qué videojuego desea reemplazar?: ");
+					try {
+						nombreJuego = RecolectaInsercion.recogerDatos();
+					} catch (IOException e1) {
+						System.out.println("Error E/S");
+					} // Fin try
+
+					while (nombreJuego == null || nombreJuego.isEmpty()) {
+						System.out.print("¿Qué videojuego desea reemplazar?: ");
+						try {
+							titJuego = RecolectaInsercion.recogerDatos();
+						} catch (IOException e) {
+							System.out.println("Error E/S");
+						} // Fin try
+					} // Fin Mientras
+				} while (!controlador.corroboraVideojuego(nombreJuego));
+
+				System.out.println(
+						"Inserte los nuevos datos que desee que tenga el juego por el cual lo quiera reemplazar:");
+				vj1 = RecolectaInsercion.recoleccionDatos();
+				vjs1.add(vj1);
+
+				if (RecolectaInsercion.deseaContinuar("¿Está seguro de que desea reemplazarlo?")) {
+					controlador.deleteVideojuego(nombreJuego);
+
+					try {
+						controlador.createVideojuegos(vjs1);
+					} catch (ParseException e) {
+						System.out.println("Hubo un error al añadir el/los videojuego/s");
+					} // Fin try
+				} else {
+					System.out.println("El juego no será reemplazado");
+				} // Fin Si
+
+				break;
+			case 4:
+				// Entorno + inicialización:
 				String tit = null;
 
 				// Algoritmo:
@@ -137,19 +181,19 @@ public class VideojuegoView {
 				} while (RecolectaInsercion.deseaContinuar("¿Desea eliminar otro videojuego?"));
 
 				break;
-			case 4:
+			case 5:
 				if (RecolectaInsercion.deseaContinuar("¿Está seguro de querer borrar todos los videojuegos?")) {
 					controlador.deleteVideojuegos();
 				} // Fin Si
 
 				break;
-			case 5:
+			case 6:
 				if (RecolectaInsercion.deseaContinuar("¿Está seguro de querer mostrar todos los videojuegos?")) {
 					controlador.mostrarTodos();
 				} // Fin Si
-				
+
 				break;
-			case 6:
+			case 7:
 				// Entorno + inicialización:
 				String titu = null;
 
@@ -173,7 +217,21 @@ public class VideojuegoView {
 						} // Fin Mientras
 					} while (!controlador.buscaVideojuego(titu));
 				} while (RecolectaInsercion.deseaContinuar("¿Desea buscar otro videojuego?"));
-				
+
+				break;
+			case 8:
+				if (controlador.exportaJSON()) {
+					System.out.println("JSON exportado con éxito en la carpeta del programa.");
+				} else {
+					System.out.println("Ha habido un error al exportar el JSON.");
+				} // Fin Si
+
+				if (controlador.exportaCSV()) {
+					System.out.println("CSV exportado con éxito en la carpeta del programa.");
+				} else {
+					System.out.println("Ha habido un error al exportar el CSV.");
+				} // Fin Si
+
 				break;
 			}// Fin Según Sea
 		} while (opc != 9);
@@ -195,22 +253,24 @@ public class VideojuegoView {
 			System.out.println("¿Qué desea hacer?:");
 			System.out.println("\t1. Dar de alta uno o varios videojuegos");
 			System.out.println("\t2. Modificar uno o varios videojuegos");
-			System.out.println("\t3. Eliminar videojuego");
-			System.out.println("\t4. Eliminar todos los videojuegos");
-			System.out.println("\t5. Mostrar videojuegos");
-			System.out.println("\t6. Buscar videojuego");
+			System.out.println("\t3. Reemplazar videojuego");
+			System.out.println("\t4. Eliminar videojuego");
+			System.out.println("\t5. Eliminar todos los videojuegos");
+			System.out.println("\t6. Mostrar videojuegos");
+			System.out.println("\t7. Buscar videojuego");
+			System.out.println("\t8. Exportar BD a CSV y JSON");
 			System.out.println("\t9. Salir");
 			System.out.print("Opción: ");
 
 			try {
 				salida = Byte.parseByte(RecolectaInsercion.recogerDatos());
-				if (salida < 1 || salida > 6) {
+				if (salida < 1 || salida > 8) {
 					if (salida != 9) {
 						throw new NumberFormatException();
 					} // Fin Si
 				} // Fin Si
 			} catch (NumberFormatException e) {
-				System.out.println("No ha metido una opción válida [1-6] y 9");
+				System.out.println("No ha metido una opción válida [1-7] y 9");
 				esSalida = false;
 			} catch (IOException e) {
 				System.out.println("Error E/S");

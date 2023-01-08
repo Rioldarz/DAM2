@@ -6,8 +6,11 @@ import static com.mongodb.client.model.Projections.fields;
 import static com.mongodb.client.model.Projections.include;
 import static com.mongodb.client.model.Sorts.ascending;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,11 +21,66 @@ import org.bson.conversions.Bson;
 import com.model.Videojuego;
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 public class VideojuegoController {
 	MongoClient mc = new MongoClient("localhost", 27017);
 	MongoDatabase db = mc.getDatabase("practica4");
+
+	public boolean exportaJSON() {
+		boolean salida = true;
+
+		MongoCollection<Document> collection = db.getCollection("videojuegos");
+
+		FindIterable<Document> iterable = collection.find();
+
+		try (FileWriter fw = new FileWriter("docs.json")) {
+			for (Document doc : iterable) {
+				fw.write(doc.toJson());
+				fw.write("\n");
+			} // Fin Para
+		} catch (IOException e) {
+			salida = false;
+		} // Fin try
+
+		return salida;
+	}// Fin Función
+
+	public boolean exportaCSV() {
+		boolean salida = true;
+
+		MongoCollection<Document> collection = db.getCollection("videojuegos");
+
+		FindIterable<Document> iterable = collection.find();
+
+		List<String> headers = new ArrayList<>();
+		List<List<String>> rows = new ArrayList<>();
+
+		for (Document doc : iterable) {
+			List<String> row = new ArrayList<>();
+			for (String key : doc.keySet()) {
+				if (headers.isEmpty()) {
+					headers.add(key);
+				} // Fin Si
+				row.add(doc.get(key).toString());
+			} // Fin Para
+			rows.add(row);
+		} // Fin Para
+
+		try (FileWriter fw = new FileWriter("docs.csv")) {
+			fw.write(String.join(",", headers));
+			fw.write("\n");
+			for (List<String> row : rows) {
+				fw.write(String.join(",", row));
+				fw.write("\n");
+			} // Fin Para
+		} catch (IOException e) {
+			salida = false;
+		} // Fin try
+
+		return salida;
+	}// Fin Función
 
 	public static String arreglaFecha(String fecha) {
 		String salida;
@@ -244,7 +302,7 @@ public class VideojuegoController {
 		if (corroboraVideojuego(titulo)) {
 			db.getCollection("videojuegos").deleteOne(new Document("titulo", titulo));
 			System.out.println("Videojuego eliminado en la base de datos");
-		}// Fin Si
+		} // Fin Si
 
 		return salida;
 	}// Fin Función
@@ -271,8 +329,8 @@ public class VideojuegoController {
 				Document findDoc = (Document) it.next();
 				System.out.println(findDoc.toJson());
 			} // Fin Mientras
-		}// Fin Si
-		
+		} // Fin Si
+
 		return salida;
 
 	}// Fin Procedimiento

@@ -4,7 +4,6 @@ package com.model;
 
 import org.bson.types.ObjectId;
 
-@SuppressWarnings("unused")
 public class Videojuego {
 	// Atributos:
 	private ObjectId id;
