@@ -1,6 +1,6 @@
 [{
   "_id": {
-    "$oid": "639872cff9ca1a0e1d821bdf"
+    "$oid": "63bb0eaf6f3197308f2c0dba"
   },
   "titulo": "Dead Cells",
   "fecha_lanzamiento": {
@@ -17,7 +17,7 @@
   "precio(euro)": 24.99
 },{
   "_id": {
-    "$oid": "639872cff9ca1a0e1d821be0"
+    "$oid": "63bb0eaf6f3197308f2c0dbb"
   },
   "titulo": "Pokemon Purpura",
   "fecha_lanzamiento": {
@@ -34,7 +34,7 @@
   "precio(euro)": 59.99
 },{
   "_id": {
-    "$oid": "639872cff9ca1a0e1d821be1"
+    "$oid": "63bb0eaf6f3197308f2c0dbc"
   },
   "titulo": "Eternal Sonata",
   "fecha_lanzamiento": {
