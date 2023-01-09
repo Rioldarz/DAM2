@@ -7,16 +7,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Categorias")
-public class Categoria {
+@Table(name = "UsuarioPerfil")
+public class UsuarioPefil {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String nombre;
-	private String descripcion;
+	private int idUsuario;
+	private int idPerfil;
 
-	public Categoria() {
+	public UsuarioPefil() {
 
 	}
 
@@ -28,20 +28,20 @@ public class Categoria {
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public int getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public int getIdPerfil() {
+		return idPerfil;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setIdPerfil(int idPerfil) {
+		this.idPerfil = idPerfil;
 	}
 
 }
