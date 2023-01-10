@@ -1,6 +1,7 @@
 package com.miguelangel.model;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -89,5 +90,12 @@ public class Usuario {
 	public void setFechaRegistro(Date fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
+	
+	public void agregar(Perfil tempPerfil) {
+		if (perfiles == null) {
+			perfiles = new LinkedList<Perfil>();
+		}//Fin Si
+		perfiles.add(tempPerfil);
+	}//Fin Procedimiento
 
 }
