@@ -1,11 +1,16 @@
 package com.miguelangel.model;
 
-import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,7 +25,10 @@ public class Usuario {
 	private String username;
 	private String password;
 	private int estatus;
-	private SimpleDateFormat fechaRegistro;
+	private Date fechaRegistro;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "UsuarioPerfil", joinColumns = @JoinColumn(name = "idUsuario"), inverseJoinColumns = @JoinColumn(name = "idPerfil"))
+	private List<Perfil> perfiles;
 
 	public Usuario() {
 
@@ -74,11 +82,11 @@ public class Usuario {
 		this.estatus = estatus;
 	}
 
-	public SimpleDateFormat getFechaRegistro() {
+	public Date getFechaRegistro() {
 		return fechaRegistro;
 	}
 
-	public void setFechaRegistro(SimpleDateFormat fechaRegistro) {
+	public void setFechaRegistro(Date fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
 

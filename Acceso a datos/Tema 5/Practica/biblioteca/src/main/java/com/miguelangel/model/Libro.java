@@ -1,11 +1,13 @@
 package com.miguelangel.model;
 
-import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,13 +19,15 @@ public class Libro {
 	private Integer id;
 	private String titulo;
 	private String autor;
-	private SimpleDateFormat fecha;
+	private Date fecha;
 	private double precio;
 	private String disponibilidad; // Temp, cambiar a enum
 	private int destacado;
 	private String imagen;
 	private String descripcion;
-	private int idCategoria;
+	@ManyToOne
+	@JoinColumn(name = "idCategoria")
+	private Categoria categoria;
 
 	public Libro() {
 
@@ -53,12 +57,12 @@ public class Libro {
 		this.autor = autor;
 	}
 
-	public SimpleDateFormat getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(SimpleDateFormat fecha) {
-		this.fecha = fecha;
+	public void setFecha(Date date) {
+		this.fecha = date;
 	}
 
 	public double getPrecio() {
@@ -101,12 +105,12 @@ public class Libro {
 		this.descripcion = descripcion;
 	}
 
-	public int getIdCategoria() {
-		return idCategoria;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setIdCategoria(int idCategoria) {
-		this.idCategoria = idCategoria;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 }
