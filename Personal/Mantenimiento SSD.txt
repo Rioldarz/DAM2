@@ -1,0 +1,3 @@
+En powershell como admin:
+fsutil behavior set DisableDeleteNotify 0
+optimize-volume -DriveLetter C -Defrag -TierOptimize
