@@ -36,7 +36,13 @@
 		<queryString>
 			<![CDATA[]]>
 		</queryString>
+		<field name="id" class="java.lang.Integer"/>
+		<field name="firstName" class="java.lang.String"/>
+		<field name="lastName" class="java.lang.String"/>
+		<field name="address" class="java.lang.String"/>
+		<field name="salary" class="java.lang.Double"/>
 	</subDataset>
+	<parameter name="CollectionBeanParam" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -90,8 +96,8 @@
 					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="MyCollectionDataSet" uuid="82c354c3-ed7e-4684-a8ef-7b6c2a8d8beb">
-						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+					<datasetRun subDataset="MyCollectionDataSet" uuid="6ec82813-5242-4d73-bf48-8f0e27102f2a">
+						<dataSourceExpression><![CDATA[$P{CollectionBeanParam}]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="50" uuid="d89c8b0c-a197-4ff7-8c81-e012ada4e455">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
@@ -105,7 +111,13 @@
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="50" height="30" uuid="aa68b9ff-8cd0-43c8-ac73-3f8696a186dd"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
 					</jr:column>
 					<jr:column width="80" uuid="01d50466-481b-4b42-b2a3-da3fc1cab5bc">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
@@ -119,7 +131,13 @@
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="30" uuid="58efba94-f20e-46ce-931c-ce5a726e8b9e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
 					</jr:column>
 					<jr:column width="80" uuid="12d587fd-8ee0-4ef3-b1e9-7f35734c8dda">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
@@ -133,7 +151,13 @@
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="30" uuid="20e99d4f-02eb-40cc-bde3-627eca066d9e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
 					</jr:column>
 					<jr:column width="80" uuid="0dee644c-eefc-4c64-b403-d7c0048dcf88">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
@@ -147,7 +171,13 @@
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="30" uuid="b7122303-d173-45ed-938b-34eaf286ec68"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
 					</jr:column>
 					<jr:column width="80" uuid="9978b67b-0370-4801-971f-9447e44d9bf2">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
@@ -161,7 +191,13 @@
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="30" uuid="1e8aa233-9172-4172-ab4e-37ac1c67fc4e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{salary}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
 					</jr:column>
 				</jr:table>
 			</componentElement>
