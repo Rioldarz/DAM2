@@ -62,31 +62,26 @@
 				<text><![CDATA[Nombre:]]></text>
 			</staticText>
 			<textField textAdjust="StretchHeight">
-				<reportElement x="100" y="16" width="100" height="30" uuid="725bf9b1-2cd4-4d65-ae40-bb8edf16ec43">
+				<reportElement x="0" y="46" width="100" height="30" uuid="725bf9b1-2cd4-4d65-ae40-bb8edf16ec43">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cb5573fa-3ae2-4280-9885-8a761f8913fe"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreHijo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="100" y="16" width="100" height="30" uuid="d842a2ff-61d9-45d1-afde-71ba6b911575"/>
+				<text><![CDATA[Apellidos:]]></text>
+			</staticText>
 			<textField textAdjust="StretchHeight">
-				<reportElement x="200" y="16" width="100" height="30" uuid="3025c323-631c-4a4d-9c30-db91f3a2d4e6">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="30ef00b9-a7de-44f8-8054-00a7a092aa6c"/>
+				<reportElement x="100" y="46" width="100" height="30" uuid="8cfb495d-71bf-40ef-9b30-38b4ec1a6f93">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cb5573fa-3ae2-4280-9885-8a761f8913fe"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nombrePadre}]]></textFieldExpression>
-			</textField>
-			<textField textAdjust="StretchHeight">
-				<reportElement x="300" y="16" width="100" height="30" uuid="e52afbab-afba-4b81-a999-b2358bec8a56">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="de090049-fd8b-42e6-bf94-f9391baa9383"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreMadre}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{apellidos}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
